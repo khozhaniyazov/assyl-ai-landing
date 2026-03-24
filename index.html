@@ -1,578 +1,846 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assyl AI — Детский центр развития и логопедии</title>
-  <meta name="description" content="Assyl AI — детский центр развития речи и коррекции. Логопед, дефектолог, АФК, сенсорная интеграция. Запишитесь на диагностику!">
+  <meta name="description"
+    content="Assyl AI — детский центр развития речи и коррекции. Логопед, дефектолог, АФК, сенсорная интеграция. Запишитесь на диагностику!">
   <!-- Meta Pixel -->
-  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','YOUR_PIXEL_ID');fbq('track','PageView');</script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  <script>!function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', 'YOUR_PIXEL_ID'); fbq('track', 'PageView');</script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap"
+    rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Nunito', 'sans-serif'], hand: ['Caveat', 'cursive'] },
+          fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Nunito', 'sans-serif'], hand: ['Caveat', 'cursive'] },
           colors: {
-            brand: { 50:'#fef7ee',100:'#fdecd6',200:'#fad5ac',300:'#f6b777',400:'#f19140',500:'#ed751a',600:'#d45b10',700:'#b04110',800:'#8d3415',900:'#772d14' },
-            mint: { 50:'#effefb',100:'#c8fff3',200:'#91fee8',300:'#53f5d9',400:'#20e0c5',500:'#0ec4ac',600:'#089e8e',700:'#0a7e73',800:'#10645d',900:'#13534e' },
+            brand: { 50: '#fef7ee', 100: '#fdecd6', 200: '#fad5ac', 300: '#f6b777', 400: '#f19140', 500: '#ed751a', 600: '#d45b10', 700: '#b04110', 800: '#8d3415', 900: '#772d14' },
+            mint: { 50: '#effefb', 100: '#c8fff3', 200: '#91fee8', 300: '#53f5d9', 400: '#20e0c5', 500: '#0ec4ac', 600: '#089e8e', 700: '#0a7e73', 800: '#10645d', 900: '#13534e' },
             cream: '#FFF8F0', blush: '#FFF0E8',
           },
-          animation: { 'float':'float 6s ease-in-out infinite','fade-up':'fadeUp 0.7s ease-out forwards','pulse-soft':'pulseSoft 3s ease-in-out infinite' },
+          animation: { 'float': 'float 6s ease-in-out infinite', 'fade-up': 'fadeUp 0.7s ease-out forwards', 'pulse-soft': 'pulseSoft 3s ease-in-out infinite' },
           keyframes: {
-            float: { '0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-12px)'} },
-            fadeUp: { '0%':{opacity:'0',transform:'translateY(30px)'},'100%':{opacity:'1',transform:'translateY(0)'} },
-            pulseSoft: { '0%,100%':{transform:'scale(1)'},'50%':{transform:'scale(1.04)'} },
+            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
+            fadeUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            pulseSoft: { '0%,100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.04)' } },
           }
         }
       }
     }
   </script>
   <style>
-    html{scroll-behavior:smooth}
-    .anim-delay-1{animation-delay:.15s}.anim-delay-2{animation-delay:.3s}.anim-delay-3{animation-delay:.45s}.anim-delay-4{animation-delay:.6s}
-    .fade-up-item{opacity:0;animation:fadeUp .7s ease-out forwards}
-    .hero-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;z-index:0}
-    .card-hover{transition:transform .3s,box-shadow .3s}.card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
-    .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:50;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:transform .3s}
-    .whatsapp-float:hover{transform:scale(1.1)}
-    @keyframes blob-move{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}50%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}}
-    .blob-morph{animation:blob-move 8s ease-in-out infinite}
-    .reel-card{position:relative;border-radius:1.5rem;overflow:hidden;aspect-ratio:9/16;max-height:500px;background:#000}
-    .reel-card iframe{width:100%;height:100%;border:0}
-  </style>
-</head>
-<body class="bg-cream text-gray-800 font-sans overflow-x-hidden">
+    html {
+      scroll-behavior: smooth
+    }
 
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/77773321002?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%21%20%D0%91%D0%B0%D0%BB%D0%B0%D0%BC%20%D1%81%D3%A9%D0%B9%D0%BB%D0%B5%D0%BC%D0%B5%D0%B9%20%D0%B6%D2%AF%D1%80.%20%D0%94%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0%D2%93%D0%B0%20%D0%B6%D0%B0%D0%B7%D1%8B%D0%BB%D2%93%D1%8B%D0%BC%20%D0%BA%D0%B5%D0%BB%D0%B5%D0%B4%D1%96" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-  <svg width="32" height="32" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+    .anim-delay-1 {
+      animation-delay: .15s
+    }
 
-<!-- HERO -->
-<section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-cream via-blush to-mint-50">
-  <div class="hero-blob w-72 h-72 bg-brand-300 top-[-50px] left-[-60px] blob-morph"></div>
-  <div class="hero-blob w-96 h-96 bg-mint-300 bottom-[-80px] right-[-80px] blob-morph" style="animation-delay:-4s"></div>
-  <div class="relative z-10 w-full max-w-6xl mx-auto px-5 py-16 md:py-24 flex flex-col md:flex-row items-center gap-10">
-    <div class="flex-1 text-center md:text-left">
-      <span class="inline-block bg-brand-100 text-brand-700 text-sm font-bold px-4 py-1.5 rounded-full mb-5 animate-fade-up">🧡 Assyl AI — Балалар даму орталығы</span>
-      <h1 class="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-tight mb-5 animate-fade-up anim-delay-1">
-        Балаңыз <span class="text-brand-500">2–5 жаста</span>, бірақ сөйлемей ме? <br class="hidden md:block">1 ай ішінде алғашқы сөздерге көмектесеміз
-      </h1>
-      <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg mx-auto md:mx-0 animate-fade-up anim-delay-2">
-        Тəжірибелі мамандар тобы балаңыздың тіл дамуын, зейінін жəне моторикасын жақсартуға көмектеседі.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start animate-fade-up anim-delay-3">
-        <a href="#form" class="inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-lg shadow-brand-500/30 transition-all duration-300 animate-pulse-soft">
-          📞 Диагностикаға жазылу
-        </a>
-        <a href="https://wa.me/77773321002?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%21%20%D0%91%D0%B0%D0%BB%D0%B0%D0%BC%20%D1%81%D3%A9%D0%B9%D0%BB%D0%B5%D0%BC%D0%B5%D0%B9%20%D0%B6%D2%AF%D1%80.%20%D0%94%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0%D2%93%D0%B0%20%D0%B6%D0%B0%D0%B7%D1%8B%D0%BB%D2%93%D1%8B%D0%BC%20%D0%BA%D0%B5%D0%BB%D0%B5%D0%B4%D1%96" target="_blank" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-mint-50 text-mint-700 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-mint-200 transition-all duration-300">
-          💬 WhatsApp
-        </a>
-      </div>
-    </div>
-    <div class="flex-1 max-w-md animate-fade-up anim-delay-2">
-      <div class="relative">
-        <div class="absolute -inset-4 bg-gradient-to-tr from-brand-200 to-mint-200 rounded-[2rem] rotate-3 opacity-60"></div>
-        <img src="hero.png" alt="Логопед балалармен жұмыс" class="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-[4/5]">
-      </div>
-    </div>
-  </div>
-  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-cream to-transparent"></div>
-</section>
+    .anim-delay-2 {
+      animation-delay: .3s
+    }
 
-<!-- PROBLEMS -->
-<section class="py-16 md:py-24 bg-cream">
-  <div class="max-w-5xl mx-auto px-5">
-    <div class="text-center mb-12">
-      <span class="font-hand text-3xl text-brand-500">Мына белгілерді байқадыңыз ба?</span>
-      <h2 class="text-3xl md:text-4xl font-black mt-2">Балаңызға көмек <span class="text-mint-600">қажет болуы мүмкін</span></h2>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <div class="fade-up-item bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
-        <span class="text-3xl flex-shrink-0">🗣️</span>
-        <div><h3 class="font-bold text-lg mb-1">3 жастан асқан, бірақ сөйлемейді</h3><p class="text-gray-500 text-sm">Құрдастарына қарағанда сөз қоры аз</p></div>
-      </div>
-      <div class="fade-up-item anim-delay-1 bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
-        <span class="text-3xl flex-shrink-0">🔇</span>
-        <div><h3 class="font-bold text-lg mb-1">Дыбыстарды дұрыс айтпайды</h3><p class="text-gray-500 text-sm">Кейбір дыбыстарды түсіріп кетеді немесе ауыстырады</p></div>
-      </div>
-      <div class="fade-up-item anim-delay-2 bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
-        <span class="text-3xl flex-shrink-0">🧠</span>
-        <div><h3 class="font-bold text-lg mb-1">Зейіні төмен, шоғырлана алмайды</h3><p class="text-gray-500 text-sm">Бір нəрсеге ұзақ назар аудара алмайды</p></div>
-      </div>
-      <div class="fade-up-item anim-delay-3 bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
-        <span class="text-3xl flex-shrink-0">🤝</span>
-        <div><h3 class="font-bold text-lg mb-1">Құрдастарымен қарым-қатынас жасай алмайды</h3><p class="text-gray-500 text-sm">Басқа балалармен ойнамайды, бөлектенеді</p></div>
-      </div>
-      <div class="fade-up-item anim-delay-4 bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
-        <span class="text-3xl flex-shrink-0">✋</span>
-        <div><h3 class="font-bold text-lg mb-1">Ұсақ моторикасы дамымаған</h3><p class="text-gray-500 text-sm">Қарындашты дұрыс ұстай алмайды</p></div>
-      </div>
-      <div class="fade-up-item anim-delay-4 bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
-        <span class="text-3xl flex-shrink-0">😢</span>
-        <div><h3 class="font-bold text-lg mb-1">Жиі ашуланады, қорқады</h3><p class="text-gray-500 text-sm">Эмоциясын басқара алмайды</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+    .anim-delay-3 {
+      animation-delay: .45s
+    }
 
-<!-- SERVICES -->
-<section class="py-16 md:py-24 bg-gradient-to-b from-cream to-white">
-  <div class="max-w-5xl mx-auto px-5">
-    <div class="text-center mb-12">
-      <span class="font-hand text-3xl text-mint-600">Біздің қызметтер</span>
-      <h2 class="text-3xl md:text-4xl font-black mt-2">Балаңыздың дамуына <span class="text-brand-500">кешенді көмек</span></h2>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Logoped -->
-      <div class="bg-white rounded-3xl p-7 border border-gray-100 card-hover text-center group">
-        <div class="w-16 h-16 mx-auto mb-4 bg-brand-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">🗣️</div>
-        <h3 class="font-extrabold text-xl mb-2">Логопед</h3>
-        <p class="text-gray-500 text-sm">Дыбыстарды қою, сөздік қорды кеңейту, тілді дамыту бағдарламасы</p>
-      </div>
-      <!-- Defectolog -->
-      <div class="bg-white rounded-3xl p-7 border border-gray-100 card-hover text-center group">
-        <div class="w-16 h-16 mx-auto mb-4 bg-mint-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">📖</div>
-        <h3 class="font-extrabold text-xl mb-2">Дефектолог</h3>
-        <p class="text-gray-500 text-sm">Танымдық дамуды қалпына келтіру, оқу дағдыларын жетілдіру</p>
-      </div>
-      <!-- AFK -->
-      <div class="bg-white rounded-3xl p-7 border border-gray-100 card-hover text-center group">
-        <div class="w-16 h-16 mx-auto mb-4 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">🏃</div>
-        <h3 class="font-extrabold text-xl mb-2">АФК</h3>
-        <p class="text-gray-500 text-sm">Адаптивтік дене шынықтыру — координацияны жəне дене дамуын жақсарту</p>
-      </div>
-      <!-- SI -->
-      <div class="bg-white rounded-3xl p-7 border border-gray-100 card-hover text-center group">
-        <div class="w-16 h-16 mx-auto mb-4 bg-purple-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">🧩</div>
-        <h3 class="font-extrabold text-xl mb-2">Сенсорлық интеграция</h3>
-        <p class="text-gray-500 text-sm">Сезім мүшелерін дамыту, сенсорлық өңдеуді жақсарту</p>
-      </div>
-      <!-- Logomassazh -->
-      <div class="bg-white rounded-3xl p-7 border border-gray-100 card-hover text-center group">
-        <div class="w-16 h-16 mx-auto mb-4 bg-rose-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">💆</div>
-        <h3 class="font-extrabold text-xl mb-2">Логомассаж</h3>
-        <p class="text-gray-500 text-sm">Артикуляциялық аппаратты дамытуға арналған massage əдісі</p>
-      </div>
-      <!-- Diagnostika -->
-      <div class="bg-gradient-to-br from-brand-500 to-brand-600 rounded-3xl p-7 card-hover text-center text-white group">
-        <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">🔍</div>
-        <h3 class="font-extrabold text-xl mb-2">Диагностика</h3>
-        <p class="text-white/80 text-sm">Балаңыздың даму деңгейін анықтайтын алғашқы кешенді тексеру</p>
-        <a href="#form" class="inline-block mt-4 bg-white text-brand-600 font-bold text-sm px-5 py-2 rounded-xl hover:bg-brand-50 transition">Жазылу →</a>
-      </div>
-    </div>
-  </div>
-</section>
+    .anim-delay-4 {
+      animation-delay: .6s
+    }
 
-<!-- SYMPTOM CHECKER -->
-<section class="py-16 md:py-24 bg-cream" id="checker">
-  <div class="max-w-5xl mx-auto px-5">
-    <div class="text-center mb-12">
-      <span class="font-hand text-3xl text-brand-500">Қандай маман қажет?</span>
-      <h2 class="text-3xl md:text-4xl font-black mt-2">Тест өтіңіз — <span class="text-brand-500">бағаны анықтаңыз</span></h2>
-      <p class="text-gray-500 mt-3">Балаңызға қажет маманды жане шамасын біліңіз</p>
-    </div>
-    <div class="flex flex-col lg:flex-row gap-8 items-start">
-      <!-- Left: Questions -->
-      <div class="flex-1 space-y-4">
-        <label id="lbl-logoped" class="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border-2 border-transparent cursor-pointer transition-all hover:border-brand-200 has-[:checked]:border-brand-400 has-[:checked]:bg-brand-50">
-          <input type="checkbox" class="symptom-cb mt-1 w-5 h-5 accent-orange-500 flex-shrink-0" value="logoped" data-specialist="Логопед" data-price="48000">
-          <div>
-            <div class="font-bold text-gray-800">🗣️ Сөйлемейді, сөздік қоры аз, дыбыстарды бұрмалайды</div>
-            <div class="text-sm text-gray-500 mt-1">→ <span class="text-brand-600 font-semibold">Логопед</span> &mdash; 48 000 ₸/ай</div>
-          </div>
-        </label>
-        <label id="lbl-logomass" class="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border-2 border-transparent cursor-pointer transition-all hover:border-brand-200 has-[:checked]:border-brand-400 has-[:checked]:bg-brand-50">
-          <input type="checkbox" class="symptom-cb mt-1 w-5 h-5 accent-orange-500 flex-shrink-0" value="logomass" data-specialist="Логомассаж" data-price="40000">
-          <div>
-            <div class="font-bold text-gray-800">👄 Сілекей көп ағады, тамақты шайнауы қиын</div>
-            <div class="text-sm text-gray-500 mt-1">→ <span class="text-brand-600 font-semibold">Логомассаж</span> &mdash; 40 000 ₸/ай</div>
-          </div>
-        </label>
-        <label id="lbl-defect" class="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border-2 border-transparent cursor-pointer transition-all hover:border-brand-200 has-[:checked]:border-brand-400 has-[:checked]:bg-brand-50">
-          <input type="checkbox" class="symptom-cb mt-1 w-5 h-5 accent-orange-500 flex-shrink-0" value="defect" data-specialist="Дефектолог" data-price="48000">
-          <div>
-            <div class="font-bold text-gray-800">🧠 Зейіні тұрақсыз, агрессия, оқуда/есте сақтауда қиындықтар</div>
-            <div class="text-sm text-gray-500 mt-1">→ <span class="text-brand-600 font-semibold">Дефектолог</span> &mdash; 48 000 ₸/ай</div>
-          </div>
-        </label>
-        <label id="lbl-afk" class="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border-2 border-transparent cursor-pointer transition-all hover:border-brand-200 has-[:checked]:border-brand-400 has-[:checked]:bg-brand-50">
-          <input type="checkbox" class="symptom-cb mt-1 w-5 h-5 accent-orange-500 flex-shrink-0" value="afk" data-specialist="АФК" data-price="48000">
-          <div>
-            <div class="font-bold text-gray-800">🏃 Қозғалысы баяу, жиі құлайды, физикалық дамуы кешіккен</div>
-            <div class="text-sm text-gray-500 mt-1">→ <span class="text-brand-600 font-semibold">АФК</span> &mdash; 48 000 ₸/ай</div>
-          </div>
-        </label>
-      </div>
-      <!-- Right: Results Card -->
-      <div class="lg:w-80 lg:sticky lg:top-8 w-full">
-        <div class="bg-white rounded-3xl p-7 shadow-xl border border-gray-100">
-          <h3 class="font-extrabold text-xl mb-5 text-gray-800">📊 Нәтижеңіз</h3>
-          <div id="checker-empty" class="text-gray-400 text-sm text-center py-6">Жоғарыдағы белгілерді таңдаңыз</div>
-          <div id="checker-result" class="hidden">
-            <div id="checker-specialists" class="mb-4 space-y-2"></div>
-            <div id="combo-badge" class="hidden bg-yellow-50 border border-yellow-200 rounded-xl p-3 mb-4 text-sm font-semibold text-yellow-800">🎁 Комбо тариф: -15% жеңілдік қолданылды</div>
-            <div class="border-t border-gray-100 pt-4 mb-5">
-              <div id="price-original" class="text-gray-400 text-sm line-through mb-1"></div>
-              <div class="flex items-end gap-2">
-                <span class="text-3xl font-black text-brand-500" id="checker-price">0</span>
-                <span class="text-gray-500 text-sm mb-1">₸/ай</span>
-              </div>
-            </div>
-            <a id="checker-wa" href="#" target="_blank" class="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-green-500/30">
-              <svg width="22" height="22" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              WhatsApp арқылы жазылу
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    .fade-up-item {
+      opacity: 0;
+      animation: fadeUp .7s ease-out forwards
+    }
 
-<!-- RESULTS BEFORE/AFTER -->
-<section class="py-16 md:py-24 bg-white">
-  <div class="max-w-5xl mx-auto px-5">
-    <div class="text-center mb-12">
-      <span class="font-hand text-3xl text-brand-500">Нақты үзгерістер</span>
-      <h2 class="text-3xl md:text-4xl font-black mt-2">Біздің <span class="text-brand-500">нәтижелер</span></h2>
-    </div>
-    <div class="grid sm:grid-cols-3 gap-6">
-      <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow border border-gray-100">
-        <div class="flex items-center gap-2 text-gray-400 text-sm mb-3"><span class="text-lg">❌</span> Бастапқы жағдай</div>
-        <p class="font-semibold text-gray-700 text-lg">3 жаста сөйлемеген</p>
-        <div class="text-3xl text-center my-4 text-brand-300">↓</div>
-        <div class="flex items-center gap-2 text-sm mb-2"><span class="text-lg">✅</span> <span class="text-mint-700 font-bold text-base">1,5 айда сөз шықты</span></div>
-      </div>
-      <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow border border-gray-100">
-        <div class="flex items-center gap-2 text-gray-400 text-sm mb-3"><span class="text-lg">❌</span> Бастапқы жағдай</div>
-        <p class="font-semibold text-gray-700 text-lg">4 жаста тек дыбыс</p>
-        <div class="text-3xl text-center my-4 text-brand-300">↓</div>
-        <div class="flex items-center gap-2 text-sm mb-2"><span class="text-lg">✅</span> <span class="text-mint-700 font-bold text-base">2 айда сөйлем</span></div>
-      </div>
-      <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow border border-gray-100">
-        <div class="flex items-center gap-2 text-gray-400 text-sm mb-3"><span class="text-lg">❌</span> Бастапқы жағдай</div>
-        <p class="font-semibold text-gray-700 text-lg">ЗРР (сөйлеудің кешігуі)</p>
-        <div class="text-3xl text-center my-4 text-brand-300">↓</div>
-        <div class="flex items-center gap-2 text-sm mb-2"><span class="text-lg">✅</span> <span class="text-mint-700 font-bold text-base">Тұрақты сөйлеу</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: .35;
+      z-index: 0
+    }
 
-<!-- SPECIALIST -->
-<section class="py-16 md:py-24 bg-white">
-  <div class="max-w-5xl mx-auto px-5">
-    <div class="flex flex-col md:flex-row items-center gap-10">
-      <div class="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 relative">
-        <div class="absolute -inset-3 bg-gradient-to-br from-mint-200 to-brand-200 rounded-full opacity-50 animate-float"></div>
-        <img src="specialist.jpg" alt="Маман Жадыра" class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl">
-      </div>
-      <div class="text-center md:text-left">
-        <span class="font-hand text-3xl text-brand-500">Біздің маман</span>
-        <h2 class="text-3xl md:text-4xl font-black mt-2 mb-4">Жадыра — <span class="text-mint-600">тəжірибелі логопед</span></h2>
-        <p class="text-gray-600 text-lg mb-4">Жадыра — балалармен жұмыс тəжірибесі мол логопед-дефектолог жəне «Асыл-ай» орталығының негізін қалаушысы. Əр баланың жеке ерекшеліктерін ескеріп, тиімді бағдарлама құрады.</p>
-        <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
-          <span class="bg-mint-50 text-mint-700 text-sm font-semibold px-4 py-2 rounded-full">✅ Жоғары біліктілік</span>
-          <span class="bg-brand-50 text-brand-700 text-sm font-semibold px-4 py-2 rounded-full">✅ 8 жыл тəжірибе</span>
-          <span class="bg-blue-50 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full">✅ Жеке тəсілдеме</span>
-        </div>
-        <a href="https://www.instagram.com/assylai.munaily/" target="_blank" class="inline-flex items-center gap-2 text-brand-500 font-bold hover:text-brand-600 transition">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          @assylai.munaily
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+    .card-hover {
+      transition: transform .3s, box-shadow .3s
+    }
 
-<!-- TRUST NUMBERS -->
-<section class="py-12 bg-gradient-to-r from-brand-500 to-brand-600">
-  <div class="max-w-5xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
-    <div><div class="text-4xl font-black">500+</div><div class="text-sm text-white/70 mt-1">Балаларға көмек берілді</div></div>
-    <div><div class="text-4xl font-black">5+</div><div class="text-sm text-white/70 mt-1">Жыл тəжірибе</div></div>
-    <div><div class="text-4xl font-black">98%</div><div class="text-sm text-white/70 mt-1">Ата-ана қанағаттанарлық</div></div>
-    <div><div class="text-4xl font-black">6</div><div class="text-sm text-white/70 mt-1">Қызмет түрі</div></div>
-  </div>
-</section>
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .08)
+    }
 
-<!-- VIDEO SOCIAL PROOF -->
-<section class="py-16 md:py-24 bg-gradient-to-b from-white to-cream">
-  <div class="max-w-5xl mx-auto px-5">
-    <div class="text-center mb-12">
-      <span class="font-hand text-3xl text-brand-500">Біздің жұмыс барысы</span>
-      <h2 class="text-3xl md:text-4xl font-black mt-2">Сабақтарымыздан <span class="text-mint-600">үзінділер</span></h2>
-      <p class="text-gray-500 mt-3">Instagram парақшамыздан нақты сабақтар мен нəтижелер</p>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-      <div class="reel-card shadow-xl w-full max-w-[280px]">
-        <iframe src="https://www.instagram.com/reel/DMJ-Y9PIzYX/embed" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="reel-card shadow-xl w-full max-w-[280px]">
-        <iframe src="https://www.instagram.com/reel/DVyJ8ASDc_8/embed" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="reel-card shadow-xl w-full max-w-[280px] hidden sm:block">
-        <iframe src="https://www.instagram.com/reel/DVvCHCOCFgi/embed" allowfullscreen loading="lazy"></iframe>
-      </div>
-    </div>
-    <div class="text-center mt-8">
-      <a href="https://www.instagram.com/assylai.munaily/" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        Барлық бейнелерді көру
-      </a>
-    </div>
-  </div>
-</section>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 50;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, .4);
+      transition: transform .3s
+    }
 
-<!-- HOW IT WORKS -->
-<section class="py-16 md:py-24 bg-cream">
-  <div class="max-w-5xl mx-auto px-5">
-    <div class="text-center mb-14">
-      <span class="font-hand text-3xl text-brand-500">Ретін іздері</span>
-      <h2 class="text-3xl md:text-4xl font-black mt-2">Бізбен жұмыс <span class="text-brand-500">қалай өтеді?</span></h2>
-    </div>
-    <div class="relative">
-      <!-- connecting line desktop -->
-      <div class="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-brand-200 via-brand-400 to-mint-300"></div>
-      <div class="grid md:grid-cols-4 gap-8">
-        <!-- Step 1 -->
-        <div class="text-center fade-up-item">
-          <div class="relative inline-block mb-5">
-            <div class="w-20 h-20 mx-auto bg-gradient-to-br from-brand-400 to-brand-600 rounded-full flex items-center justify-center shadow-lg shadow-brand-500/30">
-              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            </div>
-            <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-white border-2 border-brand-500 text-brand-600 text-xs font-black flex items-center justify-center">1</span>
-          </div>
-          <h3 class="font-extrabold text-xl mb-2">Диагностика</h3>
-          <p class="text-gray-500 text-sm">Баланың даму деңгейін және негізгі себептерді анықтау.</p>
-        </div>
-        <!-- Step 2 -->
-        <div class="text-center fade-up-item anim-delay-1">
-          <div class="relative inline-block mb-5">
-            <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg shadow-orange-400/30">
-              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 12 2 2 4-4"/></svg>
-            </div>
-            <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-white border-2 border-orange-400 text-orange-600 text-xs font-black flex items-center justify-center">2</span>
-          </div>
-          <h3 class="font-extrabold text-xl mb-2">Жеке план</h3>
-          <p class="text-gray-500 text-sm">Сіздің балаңызға арналған жеке түзету бағдарламасын құру.</p>
-        </div>
-        <!-- Step 3 -->
-        <div class="text-center fade-up-item anim-delay-2">
-          <div class="relative inline-block mb-5">
-            <div class="w-20 h-20 mx-auto bg-gradient-to-br from-mint-400 to-mint-600 rounded-full flex items-center justify-center shadow-lg shadow-mint-500/30">
-              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 9H20v4.5c0 .83-.67 1.5-1.5 1.5S17 14.33 17 13.5V11h-1.5c-.83 0-1.5-.67-1.5-1.5S14.67 8 15.5 8z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11H5v1.5c0 .83.67 1.5 1.5 1.5S8 13.33 8 12.5V11h2V9.5z"/></svg>
-            </div>
-            <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-white border-2 border-mint-400 text-mint-600 text-xs font-black flex items-center justify-center">3</span>
-          </div>
-          <h3 class="font-extrabold text-xl mb-2">Сабақ</h3>
-          <p class="text-gray-500 text-sm">Тәжірибелі мамандармен тұрақты, қызықты әрі тиімді сабақтар.</p>
-        </div>
-        <!-- Step 4 -->
-        <div class="text-center fade-up-item anim-delay-3">
-          <div class="relative inline-block mb-5">
-            <div class="w-20 h-20 mx-auto bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center shadow-lg shadow-purple-500/30">
-              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-white border-2 border-purple-400 text-purple-600 text-xs font-black flex items-center justify-center">4</span>
-          </div>
-          <h3 class="font-extrabold text-xl mb-2">Нәтиже</h3>
-          <p class="text-gray-500 text-sm">Баланың сөйлеуі мен дамуындағы айқын, оң өзгерістер.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    .whatsapp-float:hover {
+      transform: scale(1.1)
+    }
 
-<!-- REVIEWS -->
-<section class="py-16 md:py-24 bg-white">
-  <div class="max-w-5xl mx-auto px-5">
-    <div class="text-center mb-12">
-      <span class="font-hand text-3xl text-brand-500">Ата-аналар айтады</span>
-      <h2 class="text-3xl md:text-4xl font-black mt-2">Бізге <span class="text-brand-500">сенеді</span></h2>
-    </div>
-    <div class="grid sm:grid-cols-3 gap-6">
-      <!-- Review 1 -->
-      <div class="bg-gradient-to-b from-brand-50 to-white rounded-xl p-6 shadow border border-brand-100">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-11 h-11 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#ed751a"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" fill="#f6b777"/></svg>
-          </div>
-          <div>
-            <div class="font-bold text-gray-800">Айгүл (мама)</div>
-            <div class="flex gap-0.5">★★★★★</div>
-          </div>
-        </div>
-        <p class="text-gray-700 text-sm leading-relaxed">“&hellip;рахмет сізге, бүгін соңғы сабақ еді. Баланың сөйлеуі де алдыңғыдан жақсы. Логопед Жадыра апайға алғысымыз шексіз&hellip;”</p>
-      </div>
-      <!-- Review 2 -->
-      <div class="bg-gradient-to-b from-mint-50 to-white rounded-xl p-6 shadow border border-mint-100">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-11 h-11 rounded-full bg-mint-100 flex items-center justify-center flex-shrink-0">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#0ec4ac"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" fill="#91fee8"/></svg>
-          </div>
-          <div>
-            <div class="font-bold text-gray-800">Дінара</div>
-            <div class="flex gap-0.5">★★★★★</div>
-          </div>
-        </div>
-        <p class="text-gray-700 text-sm leading-relaxed">“&hellip;алғыс айтқым келеді. Бала сөйлап кетті&hellip;”</p>
-      </div>
-      <!-- Review 3 -->
-      <div class="bg-gradient-to-b from-purple-50 to-white rounded-xl p-6 shadow border border-purple-100">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-11 h-11 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#a855f7"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" fill="#d8b4fe"/></svg>
-          </div>
-          <div>
-            <div class="font-bold text-gray-800">Алаш (мама)</div>
-            <div class="flex gap-0.5">★★★★★</div>
-          </div>
-        </div>
-        <p class="text-gray-700 text-sm leading-relaxed">“&hellip;жағдайымыз жақсы сөйлап жүр&hellip; рахмет сізге көп&hellip; Жадыра апай&hellip; сіз сияқты жақсы маман&hellip;”</p>
-      </div>
-    </div>
-  </div>
-</section>
+    @keyframes blob-move {
 
-<!-- FORM + FOOTER -->
-<section id="form" class="py-16 md:py-24 bg-cream">
-  <div class="max-w-xl mx-auto px-5">
-    <div class="text-center mb-10">
-      <span class="font-hand text-3xl text-brand-500">Алғашқы қадам</span>
-      <h2 class="text-3xl md:text-4xl font-black mt-2">Диагностикаға <span class="text-mint-600">жазылыңыз</span></h2>
-      <p class="text-gray-500 mt-3">Мамандарымыз 24 сағат ішінде сізбен байланысады</p>
-      <!-- FREE OFFER BADGE -->
-      <div class="mt-5 inline-flex items-center gap-3 bg-yellow-50 border-2 border-yellow-300 rounded-2xl px-6 py-4 shadow-sm">
-        <span class="text-2xl">🎁</span>
-        <span class="text-gray-800 font-bold text-base">ОФФЕР: Алғашқы диагностика — <span class="text-green-600 font-black text-lg uppercase tracking-wide">ТЕГІН!</span></span>
-      </div>
-      <!-- URGENCY -->
-      <div class="mt-5 flex items-center justify-center gap-2 bg-red-50 border border-red-200 rounded-xl px-5 py-3 text-sm font-semibold text-red-700">
-        <span class="text-base">⚠️</span>
-        Қазір тек <strong>10 бала</strong> қабылданады. Аптасына орын шектеулі!
-      </div>
-    </div>
-    <form class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 space-y-5" onsubmit="handleSubmit(event)">
-      <div>
-        <label class="block text-sm font-bold text-gray-700 mb-1.5">Атыңыз</label>
-        <input type="text" name="name" required placeholder="Мысалы: Айгүл" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-brand-400 focus:ring-2 focus:ring-brand-100 outline-none transition text-lg">
-      </div>
-      <div>
-        <label class="block text-sm font-bold text-gray-700 mb-1.5">Телефон нөмірі</label>
-        <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-brand-400 focus:ring-2 focus:ring-brand-100 outline-none transition text-lg">
-      </div>
-      <button type="submit" id="submitBtn" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg shadow-brand-500/30 transition-all duration-300 active:scale-95">
-        Диагностикаға жазылу 📞
-      </button>
-      <p class="text-center text-xs text-gray-400">Жіберу арқылы сіз деректеріңіздің өңделуіне келісім бересіз</p>
-      <div id="formSuccess" class="hidden text-center text-mint-600 font-bold text-lg py-3">✅ Сəтті жіберілді! Біз сізге хабарласамыз.</div>
-    </form>
-  </div>
-</section>
+      0%,
+      100% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%
+      }
 
-<!-- FOOTER -->
-<footer class="bg-gray-900 text-white py-12">
-  <div class="max-w-5xl mx-auto px-5">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <div>
-        <h3 class="font-black text-xl mb-3">🧡 Assyl AI</h3>
-        <p class="text-gray-400 text-sm">Балалар даму жəне логопедия орталығы. Əр баланың əлеуетін ашу — біздің миссиямыз.</p>
-      </div>
-      <div>
-        <h4 class="font-bold mb-3">📍 Мекенжай</h4>
-        <p class="text-gray-400 text-sm">Маңғыстау қ., Манғышлақ 84 үй</p>
-        <a href="https://wa.me/77773321002?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%21%20%D0%91%D0%B0%D0%BB%D0%B0%D0%BC%20%D1%81%D3%A9%D0%B9%D0%BB%D0%B5%D0%BC%D0%B5%D0%B9%20%D0%B6%D2%AF%D1%80.%20%D0%94%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0%D2%93%D0%B0%20%D0%B6%D0%B0%D0%B7%D1%8B%D0%BB%D2%93%D1%8B%D0%BC%20%D0%BA%D0%B5%D0%BB%D0%B5%D0%B4%D1%96" class="inline-flex items-center gap-2 text-green-400 font-semibold text-sm mt-3 hover:text-green-300 transition block">💬 +7 (777) 332-10-02</a>
-        
-        <!-- 2GIS Map Embed -->
-        <div class="mt-4 rounded-xl overflow-hidden shadow-lg border border-gray-800">
-          <a class="dg-widget-link" href="http://2gis.kz/aktau/firm/70000001063739176/center/51.18956843018532,43.66699320216669/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Актау</a><div class="dg-widget-link"><a href="http://2gis.kz/aktau/firm/70000001063739176/photos/70000001063739176/center/51.18956843018532,43.66699320216669/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div><div class="dg-widget-link"><a href="http://2gis.kz/aktau/center/51.189564,43.66673/zoom/16/routeTab/rsType/bus/to/51.189564,43.66673╎Assyl-Ai, детский центр развития?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Assyl-Ai, детский центр развития</a></div><script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script><script charset="utf-8">new DGWidgetLoader({"width": "100%", "height": 250, "borderColor": "#374151", "pos": {"lat": 43.66699320216669, "lon": 51.18956843018532, "zoom": 16}, "opt": {"city": "aktau"}, "org": [{"id": "70000001063739176"}]});</script>
-          <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты работает только при включенном JavaScript</noscript>
-        </div>
-      </div>
-      <div>
-        <h4 class="font-bold mb-3">⏰ Жұмыс уақыты</h4>
-        <p class="text-gray-400 text-sm">Дс — Сб: 09:00 — 19:00</p>
-        <p class="text-gray-400 text-sm">Жексенбі: демалыс</p>
-      </div>
-    </div>
-    <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">© 2026 Assyl AI. Барлық құқықтар қорғалған.</div>
-  </div>
-</footer>
-
-<script>
-// Intersection Observer for fade-in animations
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting){e.target.style.animationPlayState='running';obs.unobserve(e.target)} });
-}, {threshold:0.15});
-document.querySelectorAll('.fade-up-item').forEach(el => {el.style.animationPlayState='paused';obs.observe(el)});
-
-// Symptom Checker Logic
-(function(){
-  const cbs = document.querySelectorAll('.symptom-cb');
-  function update(){
-    const selected = [];
-    cbs.forEach(cb=>{ if(cb.checked) selected.push({key:cb.value,specialist:cb.dataset.specialist,price:parseInt(cb.dataset.price)}); });
-    const empty=document.getElementById('checker-empty');
-    const result=document.getElementById('checker-result');
-    if(!selected.length){empty.classList.remove('hidden');result.classList.add('hidden');return;}
-    empty.classList.add('hidden');result.classList.remove('hidden');
-    // Build specialist list
-    const specDiv=document.getElementById('checker-specialists');
-    specDiv.innerHTML=selected.map(s=>`<div class="flex items-center gap-2 text-sm font-semibold text-gray-700"><span class="w-8 h-8 bg-brand-50 rounded-lg flex items-center justify-center text-brand-600">✓</span>${s.specialist}</div>`).join('');
-    // Pricing with combos
-    const keys=selected.map(s=>s.key);
-    let baseTotal=selected.reduce((a,s)=>a+s.price,0);
-    let finalTotal=baseTotal;
-    let comboApplied=false;
-    const combos=[
-      {pair:['afk','defect'],base:96000,discounted:81600},
-      {pair:['logoped','logomass'],base:88000,discounted:74800},
-      {pair:['afk','logoped'],base:96000,discounted:81600},
-    ];
-    // Find best combo (greedy: first match)
-    for(const combo of combos){
-      if(combo.pair.every(k=>keys.includes(k))){
-        const otherPrice=selected.filter(s=>!combo.pair.includes(s.key)).reduce((a,s)=>a+s.price,0);
-        finalTotal=combo.discounted+otherPrice;
-        comboApplied=true;
-        break;
+      50% {
+        border-radius: 30% 60% 70% 40%/50% 60% 30% 60%
       }
     }
-    const comboBadge=document.getElementById('combo-badge');
-    const priceOrig=document.getElementById('price-original');
-    comboBadge.classList.toggle('hidden',!comboApplied);
-    priceOrig.textContent=comboApplied?`${baseTotal.toLocaleString('ru-RU')} ₸`:'';
-    document.getElementById('checker-price').textContent=finalTotal.toLocaleString('ru-RU')+' ₸';
-    // WA link
-    const specNames=selected.map(s=>s.specialist).join(', ');
-    const msg=encodeURIComponent(`Сәлеметсіз бе! Мен сайттан тест өттім. Менің балама ${specNames} қажет екен. Есептелген баға: ${finalTotal.toLocaleString('ru-RU')} тг. Диагностикаға жазылайын деп едім.`);
-    document.getElementById('checker-wa').href=`https://wa.me/77773321002?text=${msg}`;
-  }
-  cbs.forEach(cb=>cb.addEventListener('change',update));
-})();
 
-// Form handler → WhatsApp redirect
-function handleSubmit(e){
-  e.preventDefault();
-  const f=e.target, name=f.name.value, phone=f.phone.value;
-  const btn=document.getElementById('submitBtn');
-  btn.textContent='Жіберілуде...';btn.disabled=true;
-  setTimeout(()=>{
-    document.getElementById('formSuccess').classList.remove('hidden');
-    btn.textContent='Жіберілді ✅';
-    // Meta Pixel Lead event — fires only on successful submission
-    if(typeof fbq==='function'){fbq('track','Lead',{content_name:'Diagnostika Form',content_category:'Speech Therapy'});}
-    const msg=encodeURIComponent(`Сəлеметсіз бе! Мені ${name} деп атайды. Диагностикаға жазылғым келеді. Телефоным: ${phone}`);
-    setTimeout(()=>window.open(`https://wa.me/77773321002?text=${msg}`,'_blank'),800);
-  },600);
-}
-</script>
+    .blob-morph {
+      animation: blob-move 8s ease-in-out infinite
+    }
+
+    .reel-card {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      max-height: 500px;
+      background: #000
+    }
+
+    .reel-card iframe {
+      width: 100%;
+      height: 100%;
+      border: 0
+    }
+  </style>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-cream text-slate-700 font-sans leading-relaxed overflow-x-hidden">
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/77773321002?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%21%20%D0%91%D0%B0%D0%BB%D0%B0%D0%BC%20%D1%81%D3%A9%D0%B9%D0%BB%D0%B5%D0%BC%D0%B5%D0%B9%20%D0%B6%D2%AF%D1%80.%20%D0%94%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0%D2%93%D0%B0%20%D0%B6%D0%B0%D0%B7%D1%8B%D0%BB%D2%93%D1%8B%D0%BC%20%D0%BA%D0%B5%D0%BB%D0%B5%D0%B4%D1%96"
+    target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <svg width="32" height="32" fill="#fff" viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- HERO -->
+  <section
+    class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-cream via-blush to-mint-50">
+    <div class="hero-blob w-72 h-72 bg-brand-300 top-[-50px] left-[-60px] blob-morph"></div>
+    <div class="hero-blob w-96 h-96 bg-mint-300 bottom-[-80px] right-[-80px] blob-morph" style="animation-delay:-4s">
+    </div>
+    <div
+      class="relative z-10 w-full max-w-6xl mx-auto px-5 py-24 md:py-32 flex flex-col md:flex-row items-center gap-10">
+      <div class="flex-1 text-center md:text-left">
+        <span
+          class="inline-block bg-brand-100 text-brand-700 text-sm font-bold px-4 py-1.5 rounded-full mb-5 animate-fade-up"><i data-lucide="heart" class="inline w-4 h-4 text-teal-600 mr-2" style="vertical-align: text-bottom;"></i>
+          Assyl AI — Балалар даму орталығы</span>
+        <h1 class="font-heading text-slate-800 text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-5 animate-fade-up anim-delay-1">
+          Балаңыз <span class="text-teal-600">2–5 жаста</span>, бірақ сөйлемей ме? <br class="hidden md:block">1 ай
+          ішінде алғашқы сөздерге көмектесеміз
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg mx-auto md:mx-0 animate-fade-up anim-delay-2">
+          Тəжірибелі мамандар тобы балаңыздың тіл дамуын, зейінін жəне моторикасын жақсартуға көмектеседі.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start animate-fade-up anim-delay-3">
+          <a href="#form"
+            class="inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-lg shadow-brand-500/30 transition-all duration-300 animate-pulse-soft">
+            <i data-lucide="phone" class="inline w-5 h-5 mr-2" style="vertical-align: text-bottom;"></i> Диагностикаға жазылу
+          </a>
+          <a href="https://wa.me/77773321002?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%21%20%D0%91%D0%B0%D0%BB%D0%B0%D0%BC%20%D1%81%D3%A9%D0%B9%D0%BB%D0%B5%D0%BC%D0%B5%D0%B9%20%D0%B6%D2%AF%D1%80.%20%D0%94%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0%D2%93%D0%B0%20%D0%B6%D0%B0%D0%B7%D1%8B%D0%BB%D2%93%D1%8B%D0%BC%20%D0%BA%D0%B5%D0%BB%D0%B5%D0%B4%D1%96"
+            target="_blank"
+            class="inline-flex items-center justify-center gap-2 bg-white hover:bg-mint-50 text-mint-700 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-mint-200 transition-all duration-300">
+            <i data-lucide="message-square" class="inline w-5 h-5 mr-2" style="vertical-align: text-bottom;"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="flex-1 max-w-md animate-fade-up anim-delay-2">
+        <div class="relative">
+          <div
+            class="absolute -inset-4 bg-gradient-to-tr from-brand-200 to-mint-200 rounded-[2rem] rotate-3 opacity-60">
+          </div>
+          <img src="hero.png" alt="Логопед балалармен жұмыс"
+            class="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-[4/5]">
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-cream to-transparent"></div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section class="py-24 md:py-32 bg-cream">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <span class="font-hand text-3xl text-brand-500">Мына белгілерді байқадыңыз ба?</span>
+        <h2 class="font-heading text-slate-800 text-3xl md:text-4xl font-extrabold mt-2">Балаңызға көмек <span class="text-teal-600">қажет болуы
+            мүмкін</span></h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="fade-up-item bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
+          <span class="text-3xl flex-shrink-0"><i data-lucide="message-circle" class="w-8 h-8 text-teal-600 mx-auto"></i></span>
+          <div>
+            <h3 class="font-heading text-slate-800 font-bold text-lg mb-1">3 жастан асқан, бірақ сөйлемейді</h3>
+            <p class="text-gray-500 text-sm">Құрдастарына қарағанда сөз қоры аз</p>
+          </div>
+        </div>
+        <div
+          class="fade-up-item anim-delay-1 bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
+          <span class="text-3xl flex-shrink-0"><i data-lucide="volume-x" class="w-8 h-8 text-teal-600 mx-auto"></i></span>
+          <div>
+            <h3 class="font-heading text-slate-800 font-bold text-lg mb-1">Дыбыстарды дұрыс айтпайды</h3>
+            <p class="text-gray-500 text-sm">Кейбір дыбыстарды түсіріп кетеді немесе ауыстырады</p>
+          </div>
+        </div>
+        <div
+          class="fade-up-item anim-delay-2 bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
+          <span class="text-3xl flex-shrink-0"><i data-lucide="brain" class="w-8 h-8 text-teal-600 mx-auto"></i></span>
+          <div>
+            <h3 class="font-heading text-slate-800 font-bold text-lg mb-1">Зейіні төмен, шоғырлана алмайды</h3>
+            <p class="text-gray-500 text-sm">Бір нəрсеге ұзақ назар аудара алмайды</p>
+          </div>
+        </div>
+        <div
+          class="fade-up-item anim-delay-3 bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
+          <span class="text-3xl flex-shrink-0"><i data-lucide="users" class="w-8 h-8 text-teal-600 mx-auto"></i></span>
+          <div>
+            <h3 class="font-heading text-slate-800 font-bold text-lg mb-1">Құрдастарымен қарым-қатынас жасай алмайды</h3>
+            <p class="text-gray-500 text-sm">Басқа балалармен ойнамайды, бөлектенеді</p>
+          </div>
+        </div>
+        <div
+          class="fade-up-item anim-delay-4 bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
+          <span class="text-3xl flex-shrink-0"><i data-lucide="hand" class="w-8 h-8 text-teal-600 mx-auto"></i></span>
+          <div>
+            <h3 class="font-heading text-slate-800 font-bold text-lg mb-1">Ұсақ моторикасы дамымаған</h3>
+            <p class="text-gray-500 text-sm">Қарындашты дұрыс ұстай алмайды</p>
+          </div>
+        </div>
+        <div
+          class="fade-up-item anim-delay-4 bg-white rounded-2xl p-6 border border-brand-100 card-hover flex gap-4 items-start">
+          <span class="text-3xl flex-shrink-0"><i data-lucide="frown" class="w-8 h-8 text-teal-600 mx-auto"></i></span>
+          <div>
+            <h3 class="font-heading text-slate-800 font-bold text-lg mb-1">Жиі ашуланады, қорқады</h3>
+            <p class="text-gray-500 text-sm">Эмоциясын басқара алмайды</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="py-24 md:py-32 bg-gradient-to-b from-cream to-white">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <span class="font-hand text-3xl text-mint-600">Біздің қызметтер</span>
+        <h2 class="font-heading text-slate-800 text-3xl md:text-4xl font-extrabold mt-2">Балаңыздың дамуына <span class="text-teal-600">кешенді
+            көмек</span></h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Logoped -->
+        <div class="bg-white rounded-3xl p-7 border border-gray-100 card-hover text-center group">
+          <div
+            class="w-16 h-16 mx-auto mb-4 bg-brand-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+            <i data-lucide="message-circle" class="w-8 h-8 text-teal-600 mx-auto"></i></div>
+          <h3 class="font-heading text-slate-800 font-extrabold text-xl mb-2">Логопед</h3>
+          <p class="text-gray-500 text-sm">Дыбыстарды қою, сөздік қорды кеңейту, тілді дамыту бағдарламасы</p>
+        </div>
+        <!-- Defectolog -->
+        <div class="bg-white rounded-3xl p-7 border border-gray-100 card-hover text-center group">
+          <div
+            class="w-16 h-16 mx-auto mb-4 bg-mint-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+            <i data-lucide="book-open" class="w-8 h-8 text-teal-600 mx-auto"></i></div>
+          <h3 class="font-heading text-slate-800 font-extrabold text-xl mb-2">Дефектолог</h3>
+          <p class="text-gray-500 text-sm">Танымдық дамуды қалпына келтіру, оқу дағдыларын жетілдіру</p>
+        </div>
+        <!-- AFK -->
+        <div class="bg-white rounded-3xl p-7 border border-gray-100 card-hover text-center group">
+          <div
+            class="w-16 h-16 mx-auto mb-4 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+            <i data-lucide="activity" class="w-8 h-8 text-teal-600 mx-auto"></i></div>
+          <h3 class="font-heading text-slate-800 font-extrabold text-xl mb-2">АФК</h3>
+          <p class="text-gray-500 text-sm">Адаптивтік дене шынықтыру — координацияны жəне дене дамуын жақсарту</p>
+        </div>
+        <!-- SI -->
+        <div class="bg-white rounded-3xl p-7 border border-gray-100 card-hover text-center group">
+          <div
+            class="w-16 h-16 mx-auto mb-4 bg-purple-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+            <i data-lucide="puzzle" class="w-8 h-8 text-teal-600 mx-auto"></i></div>
+          <h3 class="font-heading text-slate-800 font-extrabold text-xl mb-2">Сенсорлық интеграция</h3>
+          <p class="text-gray-500 text-sm">Сезім мүшелерін дамыту, сенсорлық өңдеуді жақсарту</p>
+        </div>
+        <!-- Logomassazh -->
+        <div class="bg-white rounded-3xl p-7 border border-gray-100 card-hover text-center group">
+          <div
+            class="w-16 h-16 mx-auto mb-4 bg-rose-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+            <i data-lucide="smile" class="w-8 h-8 text-teal-600 mx-auto"></i></div>
+          <h3 class="font-heading text-slate-800 font-extrabold text-xl mb-2">Логомассаж</h3>
+          <p class="text-gray-500 text-sm">Артикуляциялық аппаратты дамытуға арналған massage əдісі</p>
+        </div>
+        <!-- Diagnostika -->
+        <div
+          class="bg-gradient-to-br from-brand-500 to-brand-600 rounded-3xl p-7 card-hover text-center text-white group">
+          <div
+            class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+            <i data-lucide="search" class="w-8 h-8 text-white mx-auto"></i></div>
+          <h3 class="font-heading font-extrabold text-xl mb-2 text-white">Диагностика</h3>
+          <p class="text-white/80 text-sm">Балаңыздың даму деңгейін анықтайтын алғашқы кешенді тексеру</p>
+          <a href="#form"
+            class="inline-block mt-4 bg-white text-brand-600 font-bold text-sm px-5 py-2 rounded-xl hover:bg-brand-50 transition">Жазылу
+            →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYMPTOM CHECKER -->
+  <section class="py-24 md:py-32 bg-cream" id="checker">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <span class="font-hand text-3xl text-brand-500">Қандай маман қажет?</span>
+        <h2 class="font-heading text-slate-800 text-3xl md:text-4xl font-extrabold mt-2">Тест өтіңіз — <span class="text-teal-600">бағаны
+            анықтаңыз</span></h2>
+        <p class="text-gray-500 mt-3">Балаңызға қажет маманды жане шамасын біліңіз</p>
+      </div>
+      <div class="flex flex-col lg:flex-row gap-8 items-start">
+        <!-- Left: Questions -->
+        <div class="flex-1 space-y-4">
+          <label id="lbl-logoped"
+            class="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border-2 border-transparent cursor-pointer transition-all hover:border-brand-200 has-[:checked]:border-brand-400 has-[:checked]:bg-brand-50">
+            <input type="checkbox" class="symptom-cb mt-1 w-5 h-5 accent-orange-500 flex-shrink-0" value="logoped"
+              data-specialist="Логопед" data-price="48000">
+            <div>
+              <div class="font-bold text-gray-800"><i data-lucide="message-circle" class="w-8 h-8 text-teal-600 mx-auto"></i> Сөйлемейді, сөздік қоры аз, дыбыстарды бұрмалайды</div>
+              <div class="text-sm text-gray-500 mt-1">→ <span class="text-brand-600 font-semibold">Логопед</span>
+                &mdash; 48 000 ₸/ай</div>
+            </div>
+          </label>
+          <label id="lbl-logomass"
+            class="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border-2 border-transparent cursor-pointer transition-all hover:border-brand-200 has-[:checked]:border-brand-400 has-[:checked]:bg-brand-50">
+            <input type="checkbox" class="symptom-cb mt-1 w-5 h-5 accent-orange-500 flex-shrink-0" value="logomass"
+              data-specialist="Логомассаж" data-price="40000">
+            <div>
+              <div class="font-bold text-gray-800"><i data-lucide="smile" class="inline w-5 h-5 text-teal-600 mr-2" style="vertical-align: middle;"></i> Сілекей көп ағады, тамақты шайнауы қиын</div>
+              <div class="text-sm text-gray-500 mt-1">→ <span class="text-brand-600 font-semibold">Логомассаж</span>
+                &mdash; 40 000 ₸/ай</div>
+            </div>
+          </label>
+          <label id="lbl-defect"
+            class="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border-2 border-transparent cursor-pointer transition-all hover:border-brand-200 has-[:checked]:border-brand-400 has-[:checked]:bg-brand-50">
+            <input type="checkbox" class="symptom-cb mt-1 w-5 h-5 accent-orange-500 flex-shrink-0" value="defect"
+              data-specialist="Дефектолог" data-price="48000">
+            <div>
+              <div class="font-bold text-gray-800"><i data-lucide="brain" class="w-8 h-8 text-teal-600 mx-auto"></i> Зейіні тұрақсыз, агрессия, оқуда/есте сақтауда қиындықтар</div>
+              <div class="text-sm text-gray-500 mt-1">→ <span class="text-brand-600 font-semibold">Дефектолог</span>
+                &mdash; 48 000 ₸/ай</div>
+            </div>
+          </label>
+          <label id="lbl-afk"
+            class="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border-2 border-transparent cursor-pointer transition-all hover:border-brand-200 has-[:checked]:border-brand-400 has-[:checked]:bg-brand-50">
+            <input type="checkbox" class="symptom-cb mt-1 w-5 h-5 accent-orange-500 flex-shrink-0" value="afk"
+              data-specialist="АФК" data-price="48000">
+            <div>
+              <div class="font-bold text-gray-800"><i data-lucide="activity" class="w-8 h-8 text-teal-600 mx-auto"></i> Қозғалысы баяу, жиі құлайды, физикалық дамуы кешіккен</div>
+              <div class="text-sm text-gray-500 mt-1">→ <span class="text-brand-600 font-semibold">АФК</span> &mdash; 48
+                000 ₸/ай</div>
+            </div>
+          </label>
+        </div>
+        <!-- Right: Results Card -->
+        <div class="lg:w-80 lg:sticky lg:top-8 w-full">
+          <div class="bg-white rounded-3xl p-7 shadow-xl border border-gray-100">
+            <h3 class="font-heading text-slate-800 font-extrabold text-xl mb-5 "><i data-lucide="bar-chart-2" class="inline w-6 h-6 mr-2 text-teal-600" style="vertical-align: text-bottom;"></i> Нәтижеңіз</h3>
+            <div id="checker-empty" class="text-gray-400 text-sm text-center py-6">Жоғарыдағы белгілерді таңдаңыз</div>
+            <div id="checker-result" class="hidden">
+              <div id="checker-specialists" class="mb-4 space-y-2"></div>
+              <div id="combo-badge"
+                class="hidden bg-yellow-50 border border-yellow-200 rounded-xl p-3 mb-4 text-sm font-semibold text-yellow-800">
+                <i data-lucide="gift" class="inline w-6 h-6 mr-2 text-teal-600" style="vertical-align: middle;"></i> Комбо тариф: -15% жеңілдік қолданылды</div>
+              <div class="border-t border-gray-100 pt-4 mb-5">
+                <div id="price-original" class="text-gray-400 text-sm line-through mb-1"></div>
+                <div class="flex items-end gap-2">
+                  <span class="text-3xl font-black text-brand-500" id="checker-price">0</span>
+                  <span class="text-gray-500 text-sm mb-1">₸/ай</span>
+                </div>
+              </div>
+              <a id="checker-wa" href="#" target="_blank"
+                class="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-green-500/30">
+                <svg width="22" height="22" fill="#fff" viewBox="0 0 24 24">
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                WhatsApp арқылы жазылу
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS BEFORE/AFTER -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <span class="font-hand text-3xl text-brand-500">Нақты үзгерістер</span>
+        <h2 class="font-heading text-slate-800 text-3xl md:text-4xl font-extrabold mt-2">Біздің <span class="text-teal-600">нәтижелер</span></h2>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow border border-gray-100">
+          <div class="flex items-center gap-2 text-gray-400 text-sm mb-3"><span class="text-lg"><i data-lucide="x" class="inline w-5 h-5 text-slate-400"></i></span> Бастапқы жағдай
+          </div>
+          <p class="font-semibold text-gray-700 text-lg">3 жаста сөйлемеген</p>
+          <div class="flex justify-center my-6"><i data-lucide="arrow-right" class="w-8 h-8 text-teal-600 mx-auto"></i></div>
+          <div class="flex items-center gap-2 text-sm mb-2"><span class="text-lg"><i data-lucide="check-circle" class="inline w-5 h-5 text-teal-600"></i></span> <span
+              class="text-mint-700 font-bold text-base">1,5 айда сөз шықты</span></div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow border border-gray-100">
+          <div class="flex items-center gap-2 text-gray-400 text-sm mb-3"><span class="text-lg"><i data-lucide="x" class="inline w-5 h-5 text-slate-400"></i></span> Бастапқы жағдай
+          </div>
+          <p class="font-semibold text-gray-700 text-lg">4 жаста тек дыбыс</p>
+          <div class="flex justify-center my-6"><i data-lucide="arrow-right" class="w-8 h-8 text-teal-600 mx-auto"></i></div>
+          <div class="flex items-center gap-2 text-sm mb-2"><span class="text-lg"><i data-lucide="check-circle" class="inline w-5 h-5 text-teal-600"></i></span> <span
+              class="text-mint-700 font-bold text-base">2 айда сөйлем</span></div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow border border-gray-100">
+          <div class="flex items-center gap-2 text-gray-400 text-sm mb-3"><span class="text-lg"><i data-lucide="x" class="inline w-5 h-5 text-slate-400"></i></span> Бастапқы жағдай
+          </div>
+          <p class="font-semibold text-gray-700 text-lg">ЗРР (сөйлеудің кешігуі)</p>
+          <div class="flex justify-center my-6"><i data-lucide="arrow-right" class="w-8 h-8 text-teal-600 mx-auto"></i></div>
+          <div class="flex items-center gap-2 text-sm mb-2"><span class="text-lg"><i data-lucide="check-circle" class="inline w-5 h-5 text-teal-600"></i></span> <span
+              class="text-mint-700 font-bold text-base">Тұрақты сөйлеу</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIALIST -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 relative">
+          <div
+            class="absolute -inset-3 bg-gradient-to-br from-mint-200 to-brand-200 rounded-full opacity-50 animate-float">
+          </div>
+          <img src="specialist.jpg" alt="Маман Жадыра"
+            class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl">
+        </div>
+        <div class="text-center md:text-left">
+          <span class="font-hand text-3xl text-brand-500">Біздің маман</span>
+          <h2 class="font-heading text-slate-800 text-3xl md:text-4xl font-extrabold mt-2 mb-4">Жадыра — <span class="text-teal-600">тəжірибелі
+              логопед</span></h2>
+          <p class="text-gray-600 text-lg mb-4">Жадыра — балалармен жұмыс тəжірибесі мол логопед-дефектолог жəне
+            «Асыл-ай» орталығының негізін қалаушысы. Əр баланың жеке ерекшеліктерін ескеріп, тиімді бағдарлама құрады.
+          </p>
+          <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
+            <span class="bg-mint-50 text-mint-700 text-sm font-semibold px-4 py-2 rounded-full"><i data-lucide="check-circle" class="inline w-5 h-5 text-teal-600"></i> Жоғары
+              біліктілік</span>
+            <span class="bg-brand-50 text-brand-700 text-sm font-semibold px-4 py-2 rounded-full"><i data-lucide="check-circle" class="inline w-5 h-5 text-teal-600"></i> 8 жыл
+              тəжірибе</span>
+            <span class="bg-blue-50 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full"><i data-lucide="check-circle" class="inline w-5 h-5 text-teal-600"></i> Жеке тəсілдеме</span>
+          </div>
+          <a href="https://www.instagram.com/assylai.munaily/" target="_blank"
+            class="inline-flex items-center gap-2 text-brand-500 font-bold hover:text-brand-600 transition">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg>
+            @assylai.munaily
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST NUMBERS -->
+  <section class="py-16 md:py-24 bg-gradient-to-r from-brand-500 to-brand-600">
+    <div class="max-w-5xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+      <div>
+        <div class="text-4xl font-black">500+</div>
+        <div class="text-sm text-white/70 mt-1">Балаларға көмек берілді</div>
+      </div>
+      <div>
+        <div class="text-4xl font-black">5+</div>
+        <div class="text-sm text-white/70 mt-1">Жыл тəжірибе</div>
+      </div>
+      <div>
+        <div class="text-4xl font-black">98%</div>
+        <div class="text-sm text-white/70 mt-1">Ата-ана қанағаттанарлық</div>
+      </div>
+      <div>
+        <div class="text-4xl font-black">6</div>
+        <div class="text-sm text-white/70 mt-1">Қызмет түрі</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SOCIAL PROOF -->
+  <section class="py-24 md:py-32 bg-gradient-to-b from-white to-cream">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <span class="font-hand text-3xl text-brand-500">Біздің жұмыс барысы</span>
+        <h2 class="font-heading text-slate-800 text-3xl md:text-4xl font-extrabold mt-2">Сабақтарымыздан <span class="text-teal-600">үзінділер</span>
+        </h2>
+        <p class="text-gray-500 mt-3">Instagram парақшамыздан нақты сабақтар мен нəтижелер</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+        <div class="reel-card shadow-xl w-full max-w-[280px]">
+          <iframe src="https://www.instagram.com/reel/DMJ-Y9PIzYX/embed" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="reel-card shadow-xl w-full max-w-[280px]">
+          <iframe src="https://www.instagram.com/reel/DVyJ8ASDc_8/embed" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="reel-card shadow-xl w-full max-w-[280px] hidden sm:block">
+          <iframe src="https://www.instagram.com/reel/DVvCHCOCFgi/embed" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a href="https://www.instagram.com/assylai.munaily/" target="_blank"
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          </svg>
+          Барлық бейнелерді көру
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-24 md:py-32 bg-cream">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center mb-14">
+        <span class="font-hand text-3xl text-brand-500">Ретін іздері</span>
+        <h2 class="font-heading text-slate-800 text-3xl md:text-4xl font-extrabold mt-2">Бізбен жұмыс <span class="text-teal-600">қалай өтеді?</span>
+        </h2>
+      </div>
+      <div class="relative">
+        <!-- connecting line desktop -->
+        <div
+          class="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-brand-200 via-brand-400 to-mint-300">
+        </div>
+        <div class="grid md:grid-cols-4 gap-8">
+          <!-- Step 1 -->
+          <div class="text-center fade-up-item">
+            <div class="relative inline-block mb-5">
+              <div
+                class="w-20 h-20 mx-auto bg-gradient-to-br from-brand-400 to-brand-600 rounded-full flex items-center justify-center shadow-lg shadow-brand-500/30">
+                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.35-4.35" />
+                </svg>
+              </div>
+              <span
+                class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-white border-2 border-brand-500 text-brand-600 text-xs font-black flex items-center justify-center">1</span>
+            </div>
+            <h3 class="font-heading font-extrabold text-xl mb-2 text-white">Диагностика</h3>
+            <p class="text-gray-500 text-sm">Баланың даму деңгейін және негізгі себептерді анықтау.</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="text-center fade-up-item anim-delay-1">
+            <div class="relative inline-block mb-5">
+              <div
+                class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg shadow-orange-400/30">
+                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                  <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+                  <rect x="9" y="3" width="6" height="4" rx="1" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <span
+                class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-white border-2 border-orange-400 text-orange-600 text-xs font-black flex items-center justify-center">2</span>
+            </div>
+            <h3 class="font-heading text-slate-800 font-extrabold text-xl mb-2">Жеке план</h3>
+            <p class="text-gray-500 text-sm">Сіздің балаңызға арналған жеке түзету бағдарламасын құру.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="text-center fade-up-item anim-delay-2">
+            <div class="relative inline-block mb-5">
+              <div
+                class="w-20 h-20 mx-auto bg-gradient-to-br from-mint-400 to-mint-600 rounded-full flex items-center justify-center shadow-lg shadow-mint-500/30">
+                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                  <path
+                    d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z" />
+                  <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+                  <path
+                    d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z" />
+                  <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z" />
+                  <path
+                    d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z" />
+                  <path
+                    d="M15.5 9H20v4.5c0 .83-.67 1.5-1.5 1.5S17 14.33 17 13.5V11h-1.5c-.83 0-1.5-.67-1.5-1.5S14.67 8 15.5 8z" />
+                  <path
+                    d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11H5v1.5c0 .83.67 1.5 1.5 1.5S8 13.33 8 12.5V11h2V9.5z" />
+                </svg>
+              </div>
+              <span
+                class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-white border-2 border-mint-400 text-mint-600 text-xs font-black flex items-center justify-center">3</span>
+            </div>
+            <h3 class="font-heading text-slate-800 font-extrabold text-xl mb-2">Сабақ</h3>
+            <p class="text-gray-500 text-sm">Тәжірибелі мамандармен тұрақты, қызықты әрі тиімді сабақтар.</p>
+          </div>
+          <!-- Step 4 -->
+          <div class="text-center fade-up-item anim-delay-3">
+            <div class="relative inline-block mb-5">
+              <div
+                class="w-20 h-20 mx-auto bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center shadow-lg shadow-purple-500/30">
+                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </div>
+              <span
+                class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-white border-2 border-purple-400 text-purple-600 text-xs font-black flex items-center justify-center">4</span>
+            </div>
+            <h3 class="font-heading text-slate-800 font-extrabold text-xl mb-2">Нәтиже</h3>
+            <p class="text-gray-500 text-sm">Баланың сөйлеуі мен дамуындағы айқын, оң өзгерістер.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <span class="font-hand text-3xl text-brand-500">Ата-аналар айтады</span>
+        <h2 class="font-heading text-slate-800 text-3xl md:text-4xl font-extrabold mt-2">Бізге <span class="text-teal-600">сенеді</span></h2>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <!-- Review 1 -->
+        <div class="bg-gradient-to-b from-brand-50 to-white rounded-xl p-6 shadow border border-brand-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="4" fill="#ed751a" />
+                <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" fill="#f6b777" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-bold text-gray-800">Айгүл (мама)</div>
+              <div class="flex gap-0.5">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">“&hellip;рахмет сізге, бүгін соңғы сабақ еді. Баланың сөйлеуі
+            де алдыңғыдан жақсы. Логопед Жадыра апайға алғысымыз шексіз&hellip;”</p>
+        </div>
+        <!-- Review 2 -->
+        <div class="bg-gradient-to-b from-mint-50 to-white rounded-xl p-6 shadow border border-mint-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-full bg-mint-100 flex items-center justify-center flex-shrink-0">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="4" fill="#0ec4ac" />
+                <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" fill="#91fee8" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-bold text-gray-800">Дінара</div>
+              <div class="flex gap-0.5">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">“&hellip;алғыс айтқым келеді. Бала сөйлап кетті&hellip;”</p>
+        </div>
+        <!-- Review 3 -->
+        <div class="bg-gradient-to-b from-purple-50 to-white rounded-xl p-6 shadow border border-purple-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="4" fill="#a855f7" />
+                <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" fill="#d8b4fe" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-bold text-gray-800">Алаш (мама)</div>
+              <div class="flex gap-0.5">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">“&hellip;жағдайымыз жақсы сөйлап жүр&hellip; рахмет сізге
+            көп&hellip; Жадыра апай&hellip; сіз сияқты жақсы маман&hellip;”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM + FOOTER -->
+  <section id="form" class="py-24 md:py-32 bg-cream">
+    <div class="max-w-xl mx-auto px-5">
+      <div class="text-center mb-10">
+        <span class="font-hand text-3xl text-brand-500">Алғашқы қадам</span>
+        <h2 class="font-heading text-slate-800 text-3xl md:text-4xl font-extrabold mt-2">Диагностикаға <span class="text-teal-600">жазылыңыз</span></h2>
+        <p class="text-gray-500 mt-3">Мамандарымыз 24 сағат ішінде сізбен байланысады</p>
+        <!-- FREE OFFER BADGE -->
+        <div
+          class="mt-5 inline-flex items-center gap-3 bg-yellow-50 border-2 border-yellow-300 rounded-2xl px-6 py-4 shadow-sm">
+          <span class="text-2xl"><i data-lucide="gift" class="inline w-6 h-6 mr-2 text-teal-600" style="vertical-align: middle;"></i></span>
+          <span class="text-gray-800 font-bold text-base">ОФФЕР: Алғашқы диагностика — <span
+              class="text-green-600 font-black text-lg uppercase tracking-wide">ТЕГІН!</span></span>
+        </div>
+        <!-- URGENCY -->
+        <div
+          class="mt-5 flex items-center justify-center gap-2 bg-red-50 border border-red-200 rounded-xl px-5 py-3 text-sm font-semibold text-red-700">
+          <span class="text-base"><i data-lucide="alert-triangle" class="inline w-5 h-5 text-red-500 mr-2" style="vertical-align: text-bottom;"></i></span>
+          Қазір тек <strong>10 бала</strong> қабылданады. Аптасына орын шектеулі!
+        </div>
+      </div>
+      <form class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 space-y-5" onsubmit="handleSubmit(event)">
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-1.5">Атыңыз</label>
+          <input type="text" name="name" required placeholder="Мысалы: Айгүл"
+            class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-brand-400 focus:ring-2 focus:ring-brand-100 outline-none transition text-lg">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-1.5">Телефон нөмірі</label>
+          <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__"
+            class="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-brand-400 focus:ring-2 focus:ring-brand-100 outline-none transition text-lg">
+        </div>
+        <button type="submit" id="submitBtn"
+          class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg shadow-brand-500/30 transition-all duration-300 active:scale-95">
+          Диагностикаға жазылу <i data-lucide="phone" class="inline w-5 h-5 mr-2" style="vertical-align: text-bottom;"></i>
+        </button>
+        <p class="text-center text-xs text-gray-400">Жіберу арқылы сіз деректеріңіздің өңделуіне келісім бересіз</p>
+        <div id="formSuccess" class="hidden text-center text-mint-600 font-bold text-lg py-3"><i data-lucide="check-circle" class="inline w-5 h-5 text-teal-600"></i> Сəтті жіберілді! Біз
+          сізге хабарласамыз.</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="font-heading text-slate-800 font-extrabold text-xl mb-3"><i data-lucide="heart" class="inline w-4 h-4 text-teal-600 mr-2" style="vertical-align: text-bottom;"></i> Assyl AI</h3>
+          <p class="text-gray-400 text-sm">Балалар даму жəне логопедия орталығы. Əр баланың əлеуетін ашу — біздің
+            миссиямыз.</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-3"><i data-lucide="map-pin" class="inline w-4 h-4 mr-2 text-gray-400" style="vertical-align: text-bottom;"></i> Мекенжай</h4>
+          <p class="text-gray-400 text-sm">Маңғыстау қ., Манғышлақ 84 үй</p>
+          <a href="https://wa.me/77773321002?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%21%20%D0%91%D0%B0%D0%BB%D0%B0%D0%BC%20%D1%81%D3%A9%D0%B9%D0%BB%D0%B5%D0%BC%D0%B5%D0%B9%20%D0%B6%D2%AF%D1%80.%20%D0%94%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0%D2%93%D0%B0%20%D0%B6%D0%B0%D0%B7%D1%8B%D0%BB%D2%93%D1%8B%D0%BC%20%D0%BA%D0%B5%D0%BB%D0%B5%D0%B4%D1%96"
+            class="inline-flex items-center gap-2 text-green-400 font-semibold text-sm mt-3 hover:text-green-300 transition block"><i data-lucide="message-square" class="inline w-5 h-5 mr-2" style="vertical-align: text-bottom;"></i>
+            +7 (777) 332-10-02</a>
+
+          <!-- 2GIS Map Embed -->
+          <div class="mt-4 rounded-xl overflow-hidden shadow-lg border border-gray-800">
+            <a class="dg-widget-link"
+              href="http://2gis.kz/aktau/firm/70000001063739176/center/51.18956843018532,43.66699320216669/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть
+              на карте Актау</a>
+            <div class="dg-widget-link"><a
+                href="http://2gis.kz/aktau/firm/70000001063739176/photos/70000001063739176/center/51.18956843018532,43.66699320216669/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии
+                компании</a></div>
+            <div class="dg-widget-link"><a
+                href="http://2gis.kz/aktau/center/51.189564,43.66673/zoom/16/routeTab/rsType/bus/to/51.189564,43.66673╎Assyl-Ai, детский центр развития?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти
+                проезд до Assyl-Ai, детский центр развития</a></div>
+            <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+            <script
+              charset="utf-8">new DGWidgetLoader({ "width": "100%", "height": 250, "borderColor": "#374151", "pos": { "lat": 43.66699320216669, "lon": 51.18956843018532, "zoom": 16 }, "opt": { "city": "aktau" }, "org": [{ "id": "70000001063739176" }] });</script>
+            <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты работает только при включенном
+              JavaScript</noscript>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-3"><i data-lucide="clock" class="inline w-4 h-4 mr-2 text-gray-400" style="vertical-align: text-bottom;"></i> Жұмыс уақыты</h4>
+          <p class="text-gray-400 text-sm">Дс — Сб: 09:00 — 19:00</p>
+          <p class="text-gray-400 text-sm">Жексенбі: демалыс</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">© 2026 Assyl AI. Барлық құқықтар
+        қорғалған.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; obs.unobserve(e.target) } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up-item').forEach(el => { el.style.animationPlayState = 'paused'; obs.observe(el) });
+
+    // Symptom Checker Logic
+    (function () {
+      const cbs = document.querySelectorAll('.symptom-cb');
+      function update() {
+        const selected = [];
+        cbs.forEach(cb => { if (cb.checked) selected.push({ key: cb.value, specialist: cb.dataset.specialist, price: parseInt(cb.dataset.price) }); });
+        const empty = document.getElementById('checker-empty');
+        const result = document.getElementById('checker-result');
+        if (!selected.length) { empty.classList.remove('hidden'); result.classList.add('hidden'); return; }
+        empty.classList.add('hidden'); result.classList.remove('hidden');
+        // Build specialist list
+        const specDiv = document.getElementById('checker-specialists');
+        specDiv.innerHTML = selected.map(s => `<div class="flex items-center gap-2 text-sm font-semibold text-gray-700"><span class="w-8 h-8 bg-brand-50 rounded-lg flex items-center justify-center text-brand-600"><i data-lucide='check' class='w-5 h-5'></i></span>${s.specialist}</div>`).join('');
+        // Pricing with combos
+        const keys = selected.map(s => s.key);
+        let baseTotal = selected.reduce((a, s) => a + s.price, 0);
+        let finalTotal = baseTotal;
+        let comboApplied = false;
+        const combos = [
+          { pair: ['afk', 'defect'], base: 96000, discounted: 81600 },
+          { pair: ['logoped', 'logomass'], base: 88000, discounted: 74800 },
+          { pair: ['afk', 'logoped'], base: 96000, discounted: 81600 },
+        ];
+        // Find best combo (greedy: first match)
+        for (const combo of combos) {
+          if (combo.pair.every(k => keys.includes(k))) {
+            const otherPrice = selected.filter(s => !combo.pair.includes(s.key)).reduce((a, s) => a + s.price, 0);
+            finalTotal = combo.discounted + otherPrice;
+            comboApplied = true;
+            break;
+          }
+        }
+        const comboBadge = document.getElementById('combo-badge');
+        const priceOrig = document.getElementById('price-original');
+        comboBadge.classList.toggle('hidden', !comboApplied);
+        priceOrig.textContent = comboApplied ? `${baseTotal.toLocaleString('ru-RU')} ₸` : '';
+        document.getElementById('checker-price').textContent = finalTotal.toLocaleString('ru-RU') + ' ₸';
+        // WA link
+        const specNames = selected.map(s => s.specialist).join(', ');
+        const msg = encodeURIComponent(`Сәлеметсіз бе! Мен сайттан тест өттім. Менің балама ${specNames} қажет екен. Есептелген баға: ${finalTotal.toLocaleString('ru-RU')} тг. Диагностикаға жазылайын деп едім.`);
+        document.getElementById('checker-wa').href = `https://wa.me/77773321002?text=${msg}`;
+      }
+      cbs.forEach(cb => cb.addEventListener('change', update));
+    })();
+
+    // Form handler → WhatsApp redirect
+    function handleSubmit(e) {
+      e.preventDefault();
+      const f = e.target, name = f.name.value, phone = f.phone.value;
+      const btn = document.getElementById('submitBtn');
+      btn.textContent = 'Жіберілуде...'; btn.disabled = true;
+      setTimeout(() => {
+        document.getElementById('formSuccess').classList.remove('hidden');
+        btn.innerHTML = 'Жіберілді <i data-lucide="check-circle" class="inline w-5 h-5 text-white ml-2"></i>'; lucide.createIcons();
+        // Meta Pixel Lead event — fires only on successful submission
+        if (typeof fbq === 'function') { fbq('track', 'Lead', { content_name: 'Diagnostika Form', content_category: 'Speech Therapy' }); }
+        const msg = encodeURIComponent(`Сəлеметсіз бе! Мені ${name} деп атайды. Диагностикаға жазылғым келеді. Телефоным: ${phone}`);
+        setTimeout(() => window.open(`https://wa.me/77773321002?text=${msg}`, '_blank'), 800);
+      }, 600);
+    }
+  </script>
+  <script>lucide.createIcons();</script>
 </body>
+
 </html>
