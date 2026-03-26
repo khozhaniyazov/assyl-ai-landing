@@ -77,12 +77,16 @@ A static HTML landing page for **Assyl-ai** — a children's speech therapy and 
 - Updated testimonial names to proper Kazakh names (Әсем Қ., Гүлнар Б., Мәдина С.).
 
 ### Cleanup
-- Removed unused files from git: `specialist.png`, `reorder.py`, `frontend-brief.md`.
+- Removed unused files: `specialist.png`, `reorder.py`, `frontend-brief.md`, `package.json`, `opencode.json`.
+- Added `CNAME` file for custom domain setup.
+- Added `DOMAIN-SETUP.md` with step-by-step instructions for connecting `assylai.kz`.
 - Added `.nojekyll` for GitHub Pages.
 
-## MCP Servers Configured (opencode.json)
-- **context7** — search documentation (Tailwind, etc.)
-- **gh_grep** — search code examples from GitHub
+## Domain Setup (Future)
+- Domain: `assylai.kz` (~10,000 ₸/year from ps.kz)
+- Hosting: GitHub Pages (FREE)
+- CDN: Cloudflare Free plan (FREE)
+- See `DOMAIN-SETUP.md` for complete setup instructions
 
 ## Known Issues / TODO
 - Facebook Pixel is commented out — needs real Pixel ID when ready.
@@ -94,9 +98,10 @@ A static HTML landing page for **Assyl-ai** — a children's speech therapy and 
 ## Key Files
 | File | Purpose |
 |---|---|
-| `index.html` | Entire landing page (~750 lines) |
-| `hero.png` | Hero section image |
-| `specialist.jpg` | Specialist portrait |
+| `index.html` | Entire landing page (~850 lines) |
+| `hero.png` | Hero section image (82K) |
+| `specialist.jpg` | Specialist portrait (63K) |
+| `CNAME` | Custom domain config for GitHub Pages |
+| `DOMAIN-SETUP.md` | Step-by-step domain setup guide |
 | `.github/workflows/deploy.yml` | GitHub Pages CI/CD |
-| `opencode.json` | MCP server config |
 | `.nojekyll` | GitHub Pages config |
