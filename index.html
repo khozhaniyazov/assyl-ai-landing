@@ -82,10 +82,12 @@
   </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌟</text></svg>">
   <link rel="preconnect" href="https://unpkg.com">
-  <!-- Meta Pixel (uncomment and replace YOUR_PIXEL_ID when ready)
-  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','YOUR_PIXEL_ID');fbq('track','PageView');</script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-  End Meta Pixel -->
+  <!-- Meta Pixel — Replace META_PIXEL_ID with your real Pixel ID to activate -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    var META_PIXEL_ID = ''; // <-- paste your Pixel ID here
+    if (META_PIXEL_ID) { fbq('init', META_PIXEL_ID); fbq('track', 'PageView'); }
+  </script>
   <script src="https://cdn.tailwindcss.com?v=3.4.1"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -138,6 +140,16 @@
     .bg-texture { background-image: radial-gradient(circle at 20% 20%, rgba(78,156,66,0.12), transparent 40%), radial-gradient(circle at 80% 0%, rgba(242,140,0,0.12), transparent 35%), radial-gradient(circle at 70% 80%, rgba(78,156,66,0.08), transparent 40%); }
     .section-divider { background: linear-gradient(90deg, rgba(78,156,66,0) 0%, rgba(78,156,66,0.2) 50%, rgba(78,156,66,0) 100%); height: 1px; }
     .animation-delay-2000 { animation-delay: 2s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+      .fade-up-item { opacity: 1; }
+    }
   </style>
 </head>
 
@@ -158,10 +170,21 @@
           <i data-lucide="phone" class="w-4 h-4"></i> +7 777 332 10 02
         </a>
       </div>
-      <a href="tel:+77773321002" class="md:hidden flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-4 py-2 rounded-lg transition">
-        <i data-lucide="phone" class="w-4 h-4"></i>
-      </a>
+      <div class="flex items-center gap-3 md:hidden">
+        <a href="tel:+77773321002" class="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-4 py-2 rounded-lg transition">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+        </a>
+        <button id="menuToggle" aria-label="Мәзірді ашу" aria-expanded="false" class="p-2 rounded-lg border border-surface-200 text-surface-600 hover:bg-surface-50 transition">
+          <i data-lucide="menu" class="w-5 h-5" id="menuIconOpen"></i>
+          <i data-lucide="x" class="w-5 h-5 hidden" id="menuIconClose"></i>
+        </button>
+      </div>
     </nav>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-surface-100 bg-white px-6 pb-4 space-y-3">
+      <a href="#checker" class="block text-surface-600 hover:text-brand-600 font-medium py-2 transition">Маманды анықтау</a>
+      <a href="#results" class="block text-surface-600 hover:text-brand-600 font-medium py-2 transition">Нәтижелер</a>
+      <a href="#form" class="block text-surface-600 hover:text-brand-600 font-medium py-2 transition">Байланыс</a>
+    </div>
   </header>
 
   <!-- WhatsApp Float -->
@@ -209,7 +232,10 @@
       </div>
         <div class="relative mx-auto lg:ml-auto max-w-md w-full animate-fade-up anim-delay-4">
         <div class="absolute inset-0 bg-gradient-to-tr from-brand-200 to-accent-100 rounded-3xl transform rotate-3 scale-105 opacity-60 z-0"></div>
-        <img src="hero.png" alt="Маман баламен сабақ өткізуде" loading="eager" class="relative z-10 w-full rounded-3xl shadow-2xl border flex border-white/50 object-cover aspect-[4/5]"/>
+        <picture>
+          <source srcset="hero.webp" type="image/webp">
+          <img src="hero.png" alt="Маман баламен сабақ өткізуде" loading="eager" class="relative z-10 w-full rounded-3xl shadow-2xl border flex border-white/50 object-cover aspect-[4/5]"/>
+        </picture>
         
         <div class="absolute -bottom-6 -left-6 z-20 glass-card rounded-2xl p-4 shadow-xl flex items-center gap-4 animate-float">
           <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600"><i data-lucide="star" class="w-6 h-6"></i></div>
@@ -583,7 +609,10 @@
       <div class="flex flex-col md:flex-row items-center gap-16">
         <div class="w-64 h-64 md:w-[400px] md:h-[400px] flex-shrink-0 relative fade-up-item">
           <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-brand-100 rounded-full transform -translate-x-6 translate-y-6"></div>
-          <img src="specialist.jpg" alt="Бас логопед Жадыра Сапарбаевна" loading="lazy" class="relative z-10 w-full h-full object-cover rounded-full shadow-2xl border-8 border-white"/>
+          <picture>
+            <source srcset="specialist.webp" type="image/webp">
+            <img src="specialist.jpg" alt="Бас логопед Жадыра Сапарбаевна" loading="lazy" class="relative z-10 w-full h-full object-cover rounded-full shadow-2xl border-8 border-white"/>
+          </picture>
         </div>
         <div class="flex-1 text-center md:text-left fade-up-item anim-delay-2">
           <div class="text-brand-700 font-bold tracking-widest uppercase text-sm mb-3">Орталық жетекшісі</div>
@@ -775,6 +804,28 @@
   <script>
     // Init Lucide
     lucide.createIcons();
+
+    // Mobile menu toggle
+    (function () {
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      const iconOpen = document.getElementById('menuIconOpen');
+      const iconClose = document.getElementById('menuIconClose');
+      toggle.addEventListener('click', function () {
+        const open = menu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        toggle.setAttribute('aria-expanded', !open);
+      });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          menu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
 
     // Intersection Observer for fade elements
     const obs = new IntersectionObserver((entries) => {
