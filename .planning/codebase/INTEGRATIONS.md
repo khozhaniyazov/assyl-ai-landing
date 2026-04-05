@@ -98,6 +98,18 @@
   - `https://2gis.kz/aktau/geo/70000001063739176` (maps)
   - `https://connect.facebook.net/en_US/fbevents.js` (optional analytics script)
 
+### Lead webhook runtime endpoint (optional but supported)
+
+- Runtime module: `assets/js/lead-webhook.js` (`window.AssylLeadWebhook`)
+- Endpoint source: `window.ASSYLAI_WEBHOOK_URL`
+- Safe default behavior:
+  - Missing/invalid URL does **not** break lead flow
+  - `sendNow()` returns `{ ok: false, queued: true, reason: 'missing-webhook-url' | 'invalid-webhook-url' }`
+  - payloads are queued in localStorage for later flush
+  - `flushQueue()` exits gracefully when config is unavailable
+- Explicit config visibility:
+  - `getConfigStatus()` returns structured status for ops/UI diagnostics
+
 ## Data Flow Boundaries
 
 - **In-browser boundary:** user enters name/phone into form in `index.html`; validation and message composition happen fully client-side.

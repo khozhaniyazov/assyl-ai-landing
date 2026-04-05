@@ -9,6 +9,39 @@
     return global.ASSYLAI_WEBHOOK_URL || '';
   }
 
+  function getConfigStatus() {
+    const url = endpoint();
+    if (!url) {
+      return {
+        configured: false,
+        endpoint: '',
+        reason: 'missing-webhook-url'
+      };
+    }
+
+    try {
+      const parsed = new URL(url, global.location && global.location.href ? global.location.href : undefined);
+      if (!/^https?:$/i.test(parsed.protocol)) {
+        return {
+          configured: false,
+          endpoint: url,
+          reason: 'invalid-webhook-url'
+        };
+      }
+
+      return {
+        configured: true,
+        endpoint: parsed.toString()
+      };
+    } catch (_err) {
+      return {
+        configured: false,
+        endpoint: url,
+        reason: 'invalid-webhook-url'
+      };
+    }
+  }
+
   function enqueue(kind, payload) {
     if (typeof runtime.queueItem === 'function') {
       return runtime.queueItem(kind, payload);
@@ -57,15 +90,15 @@
 
   async function sendNow(kind, payload) {
     const body = sanitizePayload(kind, payload || {});
-    const url = endpoint();
+    const config = getConfigStatus();
 
-    if (!url) {
+    if (!config.configured) {
       enqueue(kind, body);
-      return { ok: false, queued: true, reason: 'missing-webhook-url' };
+      return { ok: false, queued: true, reason: config.reason || 'missing-webhook-url' };
     }
 
     try {
-      const res = await fetch(ASSYLAI_WEBHOOK_URL, {
+      const res = await fetch(config.endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
@@ -84,8 +117,8 @@
   }
 
   async function flushQueue() {
-    const url = endpoint();
-    if (!url) return { ok: false, flushed: 0, reason: 'missing-webhook-url' };
+    const config = getConfigStatus();
+    if (!config.configured) return { ok: false, flushed: 0, reason: config.reason || 'missing-webhook-url' };
 
     const eventItems = getQueued('event') || [];
     const leadItems = getQueued('lead') || [];
@@ -109,7 +142,8 @@
   const api = {
     sendNow,
     enqueue,
-    flushQueue
+    flushQueue,
+    getConfigStatus
   };
 
   global.AssylLeadWebhook = api;
