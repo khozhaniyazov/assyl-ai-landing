@@ -4,7 +4,9 @@ const path = require('path');
 const vm = require('vm');
 
 const reportingPath = path.join(__dirname, '..', 'assets', 'js', 'intake-reporting.js');
+const opsPanelPath = path.join(__dirname, '..', 'assets', 'js', 'intake-ops-panel.js');
 const source = fs.readFileSync(reportingPath, 'utf8');
+const opsSource = fs.readFileSync(opsPanelPath, 'utf8');
 
 const sandbox = {
   window: {},
@@ -70,5 +72,26 @@ assert.strictEqual(report.channels.sticky, undefined, 'out-of-window channel sho
 const summary = reporting.formatWeeklySummary(report);
 assert.strictEqual(typeof summary, 'string', 'formatWeeklySummary should return string');
 assert.strictEqual(summary.includes('hero'), true, 'summary should include channel key');
+
+const host = {
+  innerHTML: '',
+  querySelectorAll() {
+    return [];
+  }
+};
+
+sandbox.document = {
+  getElementById(id) {
+    if (id === 'intake-ops-panel') return host;
+    return null;
+  }
+};
+
+vm.runInContext(opsSource, sandbox);
+const opsPanel = sandbox.window.AssylIntakeOpsPanel;
+assert.ok(opsPanel, 'window.AssylIntakeOpsPanel should be defined');
+opsPanel.renderIntakeOpsPanel(host);
+
+assert.strictEqual(host.innerHTML.includes('Weekly Funnel (7 күн)'), true, 'ops panel should render weekly funnel block');
 
 console.log('intake-reporting tests passed');

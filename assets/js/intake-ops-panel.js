@@ -26,6 +26,57 @@
     return transitions[status] || [];
   }
 
+  function isoAtLocalDayStart(date) {
+    const copy = new Date(date);
+    copy.setHours(0, 0, 0, 0);
+    return copy.toISOString();
+  }
+
+  function isoAtLocalDayEnd(date) {
+    const copy = new Date(date);
+    copy.setHours(23, 59, 59, 999);
+    return copy.toISOString();
+  }
+
+  function buildWeeklyRange() {
+    const now = new Date();
+    const weekStart = new Date(now);
+    weekStart.setDate(now.getDate() - 6);
+    return {
+      weekStartISO: isoAtLocalDayStart(weekStart),
+      weekEndISO: isoAtLocalDayEnd(now)
+    };
+  }
+
+  function renderReportingBlock() {
+    const reporting = global.AssylIntakeReporting;
+    if (!reporting || typeof reporting.buildWeeklyFunnel !== 'function' || typeof reporting.formatWeeklySummary !== 'function') {
+      return '<div class="mt-4 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-xl p-3">Reporting модулі табылмады. Weekly funnel көрінісі қолжетімсіз.</div>';
+    }
+
+    const range = buildWeeklyRange();
+    const report = reporting.buildWeeklyFunnel(range);
+    const summary = reporting.formatWeeklySummary(report);
+    const totals = report.totals || { intent: 0, qualified: 0, booked: 0, paid: 0 };
+
+    return `
+      <div class="mt-4 bg-white border border-surface-200 rounded-2xl p-4">
+        <div class="flex items-center justify-between gap-3 mb-3">
+          <h4 class="font-semibold text-surface-900">Weekly Funnel (7 күн)</h4>
+          <span class="text-xs text-surface-500">${escapeHtml(range.weekStartISO)} → ${escapeHtml(range.weekEndISO)}</span>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3 text-sm">
+          <div class="rounded-lg border border-surface-200 px-3 py-2"><span class="text-surface-500">intent</span><div class="font-bold text-surface-900">${totals.intent}</div></div>
+          <div class="rounded-lg border border-surface-200 px-3 py-2"><span class="text-surface-500">qualified</span><div class="font-bold text-surface-900">${totals.qualified}</div></div>
+          <div class="rounded-lg border border-surface-200 px-3 py-2"><span class="text-surface-500">booked</span><div class="font-bold text-surface-900">${totals.booked}</div></div>
+          <div class="rounded-lg border border-surface-200 px-3 py-2"><span class="text-surface-500">paid</span><div class="font-bold text-surface-900">${totals.paid}</div></div>
+        </div>
+        <pre class="text-xs text-surface-700 bg-surface-50 border border-surface-100 rounded-lg p-3 overflow-x-auto">${escapeHtml(summary)}</pre>
+      </div>
+    `;
+  }
+
+
   function renderActionButtons(lead) {
     const nextStatuses = resolveNextStatuses(lead.status || 'new');
     if (!nextStatuses.length) {
@@ -110,6 +161,7 @@
               </tbody>
             </table>
           </div>
+          ${renderReportingBlock()}
         </div>
       </div>
     `;
