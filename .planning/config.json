@@ -1,0 +1,23 @@
+{
+  "workflow": "new-project",
+  "mode": "auto",
+  "project_type": "brownfield",
+  "research": {
+    "enabled": true,
+    "status": "completed",
+    "path": ".planning/research",
+    "summary": ".planning/research/SUMMARY.md"
+  },
+  "codebase_map": {
+    "enabled": true,
+    "path": ".planning/codebase",
+    "status": "completed"
+  },
+  "defaults": {
+    "primary_language": "kk",
+    "deployment": "github-pages",
+    "intake_channel": "whatsapp-first",
+    "roadmap_phase_target": 4
+  },
+  "next_command": "/gsd-plan-phase 1"
+}
