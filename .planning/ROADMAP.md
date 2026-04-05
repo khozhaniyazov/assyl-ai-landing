@@ -3,7 +3,7 @@
 ## Phases
 
 - [x] **Phase 1: Consent, Attribution, and Reliable Handoffs** - Make every lead action consented, measurable, and reliably handed off to WhatsApp/call paths.
-- [ ] **Phase 2: Audience Messaging and Trust Layer** - Improve segment-fit messaging and evidence quality so parents can decide with confidence.
+- [x] **Phase 2: Audience Messaging and Trust Layer** - Improve segment-fit messaging and evidence quality so parents can decide with confidence.
 - [ ] **Phase 3: Intake Operations Data Contract** - Standardize lead lifecycle data so operators can qualify, book, and track outcomes consistently.
 - [ ] **Phase 4: Quality Gates and Deployment Readiness** - Add pre-publish guardrails for quality, performance, accessibility, and safe releases.
 
@@ -37,7 +37,11 @@ Plans:
   4. Trust content (testimonials, specialist credibility, process transparency, disclaimers) is present and phrased with claim governance standards.
   5. Updated sections remain keyboard-accessible and announce form/status feedback appropriately for assistive technologies.
 **Exit Gate**: Updated copy/trust blocks are live, objection coverage is complete for priority concerns, and accessibility checks for updated interaction points pass.
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [x] 02-01-PLAN.md — Add segment-aware messaging and realistic 30/60/90 + early-session expectations.
+- [x] 02-02-PLAN.md — Expand objection-first FAQ and govern trust claims with synchronized FAQ schema.
+- [x] 02-03-PLAN.md — Harden accessibility status announcements and keyboard/screen-reader verification.
 **UI hint**: yes
 
 ### Phase 3: Intake Operations Data Contract
@@ -86,6 +90,6 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Consent, Attribution, and Reliable Handoffs | 3/3 | Complete | 2026-04-05 |
-| 2. Audience Messaging and Trust Layer | 0/0 | Not started | - |
+| 2. Audience Messaging and Trust Layer | 3/3 | Complete | 2026-04-05 |
 | 3. Intake Operations Data Contract | 0/0 | Not started | - |
 | 4. Quality Gates and Deployment Readiness | 0/0 | Not started | - |

@@ -90,5 +90,8 @@
 
 - [x] FR1 — Phase 1 / Plan 02 implemented explicit consent gating with adjacent privacy disclosures across checker, form, and sticky CTA.
 - [x] FR2 — Phase 1 / Plan 02 added truthful handoff outcomes and fallback guidance for blocked WhatsApp flows.
+- [x] FR3 — Phase 2 / Plans 01+02 implemented segment-aware messaging, realistic expectation framing, and objection-first FAQ coverage.
 - [x] FR4 — Phase 1 / Plans 01+03 delivered canonical event taxonomy, WA channel markers, UTM persistence, and core event instrumentation with webhook transport.
+- [x] FR6 — Phase 2 / Plan 02 added claim-governed trust disclaimers and synchronized visible FAQ content with FAQPage JSON-LD.
+- [x] NFR2 — Phase 2 / Plan 03 hardened ARIA live/status semantics and validated keyboard/screen-reader feedback flow.
 - [x] NFR3 — Phase 1 / Plans 01+03 use non-PII lead references in URL-bound handoff messages and keep raw personal details out of URL payloads.
