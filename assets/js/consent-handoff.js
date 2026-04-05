@@ -208,6 +208,27 @@
     }, true);
   }
 
+  function bindGlobalWhatsAppConsent() {
+    const waAnchors = global.document.querySelectorAll('a[data-track="whatsapp"][data-consent-surface]');
+    waAnchors.forEach(function bindAnchor(anchor) {
+      if (anchor.id === 'checker-wa' || anchor.id === 'sticky-wa') {
+        return;
+      }
+
+      anchor.addEventListener('click', function onConsentGate(e) {
+        const consentSurface = anchor.getAttribute('data-consent-surface') || 'form';
+        if (!ensureConsent(consentSurface)) {
+          e.preventDefault();
+          return;
+        }
+
+        e.preventDefault();
+        recordConsent(consentSurface);
+        beginHandoff(consentSurface, anchor.href, FALLBACK_TEL);
+      });
+    });
+  }
+
   const api = {
     ensureConsent,
     recordConsent,
@@ -223,6 +244,7 @@
     bindChecker();
     bindSticky();
     bindForm();
+    bindGlobalWhatsAppConsent();
   }
 
   if (global.document.readyState === 'loading') {

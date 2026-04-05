@@ -44,6 +44,11 @@ function run() {
     fail('Missing required <main id="main"> landmark.');
   }
 
+  const consentSurfaceCount = (html.match(/data-consent-surface=["']/gi) || []).length;
+  if (consentSurfaceCount < 5) {
+    fail('Expected consent gating attributes on primary WhatsApp CTAs (data-consent-surface).');
+  }
+
   if (!/<link[^>]*\brel=["']canonical["'][^>]*\bhref=["']https:\/\/khozhaniyazov\.github\.io\/assylai\/["'][^>]*>/i.test(html)) {
     fail('Missing canonical URL link for https://khozhaniyazov.github.io/assylai/.');
   }
