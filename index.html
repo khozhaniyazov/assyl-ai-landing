@@ -1114,6 +1114,18 @@
       if (window.AssylIntakeOperations && typeof window.AssylIntakeOperations.refreshOpsPanel === 'function') {
         window.AssylIntakeOperations.refreshOpsPanel();
       }
+
+      const url = new URL(window.location.href);
+      const isOpsMode = url.search.includes('ops=1') || url.searchParams.get('ops') === '1';
+      if (isOpsMode) {
+        const opsPanelHost = document.getElementById('intake-ops-panel');
+        if (opsPanelHost) {
+          opsPanelHost.classList.remove('hidden');
+          if (window.AssylIntakeOpsPanel && typeof window.AssylIntakeOpsPanel.renderIntakeOpsPanel === 'function') {
+            window.AssylIntakeOpsPanel.renderIntakeOpsPanel(opsPanelHost);
+          }
+        }
+      }
     });
 
   </script>
@@ -1125,5 +1137,7 @@
   <script defer src="assets/js/intake-contracts.js"></script>
   <script defer src="assets/js/intake-store.js"></script>
   <script defer src="assets/js/intake-operations.js"></script>
+  <script defer src="assets/js/intake-reporting.js"></script>
+  <script defer src="assets/js/intake-ops-panel.js"></script>
 </body>
 </html>
