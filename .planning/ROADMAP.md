@@ -54,7 +54,11 @@ Plans:
   3. Weekly funnel reporting can show intent → qualified → booked → paid by channel using the agreed schema.
   4. High-risk page logic relevant to intake tracking is isolated enough to reduce single-file regression risk during ongoing updates.
 **Exit Gate**: CRM schema and state-transition contract are adopted in operations, and reporting can be produced repeatedly without manual data reconstruction.
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [x] 03-01-PLAN.md — Define canonical intake schema and guarded lifecycle storage contract.
+- [ ] 03-02-PLAN.md — Wire intake operations into live lead flows and bootstrap ops panel host.
+- [ ] 03-03-PLAN.md — Add weekly funnel reporting and operator status panel isolation for maintainability.
 
 ### Phase 4: Quality Gates and Deployment Readiness
 **Goal**: Releases are blocked unless core quality, link integrity, accessibility basics, and performance safeguards pass before GitHub Pages publish.
@@ -91,5 +95,5 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Consent, Attribution, and Reliable Handoffs | 3/3 | Complete | 2026-04-05 |
 | 2. Audience Messaging and Trust Layer | 3/3 | Complete | 2026-04-05 |
-| 3. Intake Operations Data Contract | 0/0 | Not started | - |
+| 3. Intake Operations Data Contract | 1/3 | In Progress | - |
 | 4. Quality Gates and Deployment Readiness | 0/0 | Not started | - |
