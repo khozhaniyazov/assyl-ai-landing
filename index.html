@@ -940,16 +940,18 @@
 
       if (typeof fbq === 'function') { fbq('track', 'Lead'); }
 
-      // Show success
-      successDiv.classList.remove('hidden');
-      btn.innerHTML = '<i data-lucide="check" class="w-5 h-5"></i> Жіберілді';
-      lucide.createIcons();
+      const handoff = window.AssylConsentHandoff && typeof window.AssylConsentHandoff.beginHandoff === 'function'
+        ? window.AssylConsentHandoff.beginHandoff('form', waUrl, '+77773321002')
+        : { status: 'manual_next_step', opened: false };
 
-      // Open WhatsApp - use location.href as fallback if popup blocked
-      const waWindow = window.open(waUrl, '_blank');
-      if (!waWindow || waWindow.closed) {
-        window.location.href = waUrl;
+      if (handoff.opened) {
+        successDiv.classList.remove('hidden');
+        btn.innerHTML = '<i data-lucide="check" class="w-5 h-5"></i> Жіберілді';
+      } else {
+        successDiv.classList.add('hidden');
+        btn.innerHTML = '<i data-lucide="phone" class="w-5 h-5"></i> Қолмен жалғастыру';
       }
+      lucide.createIcons();
 
       // Reset form after 4 seconds so user can submit again
       setTimeout(() => {
