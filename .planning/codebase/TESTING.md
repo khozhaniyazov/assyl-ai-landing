@@ -5,30 +5,42 @@
 ## Test Framework
 
 **Runner:**
-- Not detected.
-- Config: Not detected (`jest.config.*` missing, `vitest.config.*` missing in repository root).
+- Node CLI scripts (`node`) with deterministic assertions.
+- Config: none required (built-in Node modules only).
 
 **Assertion Library:**
-- Not detected.
+- Native Node assertions (`assert`) and explicit throw/exit checks.
 
 **Run Commands:**
 ```bash
-Not available              # Run all tests
-Not available              # Watch mode
-Not available              # Coverage
+node tests/quality/run-quality-tests.cjs   # Primary pre-deploy quality gate
+node tests/intake-contracts.test.cjs       # Intake schema contract
+node tests/intake-store.test.cjs           # Intake storage lifecycle
+node tests/intake-operations.test.cjs      # Intake operations behavior
+node tests/intake-reporting.test.cjs       # Weekly funnel reporting
 ```
 
 ## Test File Organization
 
 **Location:**
-- No automated test files detected (`**/*.test.*` and `**/*.spec.*` not present).
+- `tests/*.test.cjs` and `tests/quality/*.test.cjs`
 
 **Naming:**
-- Not applicable (no test files detected).
+- `*.test.cjs` scripts executed directly with `node`.
 
 **Structure:**
 ```
-Not applicable
+tests/
+  intake-contracts.test.cjs
+  intake-store.test.cjs
+  intake-operations.test.cjs
+  intake-reporting.test.cjs
+  quality/
+    check-html-baseline.test.cjs
+    check-links.test.cjs
+    check-a11y-baseline.test.cjs
+    check-performance-budget.test.cjs
+    run-quality-tests.cjs
 ```
 
 ## Test Structure
@@ -133,9 +145,14 @@ Use this checklist before merging quality-sensitive changes:
 
 ## CI/CD Quality Gates
 
-- Current CI (`.github/workflows/deploy.yml`) provides deployment only.
-- No automated testing job runs before deployment.
-- No accessibility scan, HTML validation, link check, or structured-data validation gate is configured.
+- GitHub Actions workflow (`.github/workflows/deploy.yml`) now runs a blocking `quality` job before deploy.
+- CI quality gate command: `node tests/quality/run-quality-tests.cjs`.
+- `deploy` job is configured with `needs: quality`, so publish is blocked when any quality check fails.
+- Quality gate includes deterministic scripts:
+  - `tests/quality/check-html-baseline.test.cjs`
+  - `tests/quality/check-links.test.cjs`
+  - `tests/quality/check-a11y-baseline.test.cjs`
+  - `tests/quality/check-performance-budget.test.cjs`
 
 ## Technical Debt Risks Related to Testing Quality
 
