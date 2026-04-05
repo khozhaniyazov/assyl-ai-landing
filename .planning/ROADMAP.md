@@ -19,7 +19,11 @@
   3. Lead handoff UI communicates real outcome states (attempted, fallback, next step) so users are not falsely told submission succeeded.
   4. UTM/source markers and channel-specific WhatsApp codes are persisted and visible in captured lead/event records for core actions (page view, WhatsApp click, call click, form submit, major scroll).
 **Exit Gate**: Consent enforcement + metadata logging + channel attribution + core event tracking are verified in production-like flow and meet the acceptance baseline for attribution completeness.
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [x] 01-01-PLAN.md — Define shared lead contracts/runtime and bootstrap phase scripts.
+- [ ] 01-02-PLAN.md — Enforce consent and truthful WhatsApp/call handoff fallback UX.
+- [ ] 01-03-PLAN.md — Implement attribution/event tracking and webhook + queue persistence.
 **UI hint**: yes
 
 ### Phase 2: Audience Messaging and Trust Layer
@@ -81,7 +85,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Consent, Attribution, and Reliable Handoffs | 0/0 | Not started | - |
+| 1. Consent, Attribution, and Reliable Handoffs | 1/3 | In Progress | - |
 | 2. Audience Messaging and Trust Layer | 0/0 | Not started | - |
 | 3. Intake Operations Data Contract | 0/0 | Not started | - |
 | 4. Quality Gates and Deployment Readiness | 0/0 | Not started | - |

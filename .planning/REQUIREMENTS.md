@@ -85,3 +85,8 @@
 ## Exclusions
 - Building a full custom backend application in this phase.
 - Replatforming away from GitHub Pages in this cycle.
+
+## Requirement Implementation Status
+
+- [x] FR4 — Phase 1 / Plan 01 established canonical event taxonomy, WA channel codes, and shared attribution runtime foundations.
+- [x] NFR3 — Phase 1 / Plan 01 introduced non-PII lead reference format (`L-{timestamp}-{4-char-alnum}`) for handoff correlation.
