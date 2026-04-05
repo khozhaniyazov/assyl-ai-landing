@@ -915,6 +915,8 @@
   </section>
   </main>
 
+  <section id="intake-ops-panel" class="hidden" aria-label="Intake Operations Panel"></section>
+
   <section id="privacy-disclosure" class="bg-surface-100 border-t border-surface-200">
     <div class="max-w-6xl mx-auto px-6 py-6 text-sm text-surface-700">
       <p class="font-semibold text-surface-900 mb-1">Құпиялылық ескертуі</p>
@@ -1063,6 +1065,10 @@
         ? window.AssylAttribution.resolveCurrentTouch()
         : null;
 
+      if (window.AssylIntakeOperations && typeof window.AssylIntakeOperations.registerFormLead === 'function') {
+        window.AssylIntakeOperations.registerFormLead({ leadRef: leadRef, sourceChannel: 'form' });
+      }
+
       if (window.AssylLeadWebhook && typeof window.AssylLeadWebhook.sendNow === 'function') {
         window.AssylLeadWebhook.sendNow('lead', {
           lead_ref: leadRef,
@@ -1104,6 +1110,10 @@
           window.AssylLeadWebhook.flushQueue();
         }, 30000);
       }
+
+      if (window.AssylIntakeOperations && typeof window.AssylIntakeOperations.refreshOpsPanel === 'function') {
+        window.AssylIntakeOperations.refreshOpsPanel();
+      }
     });
 
   </script>
@@ -1112,5 +1122,8 @@
   <script defer src="assets/js/consent-handoff.js"></script>
   <script defer src="assets/js/attribution-tracking.js"></script>
   <script defer src="assets/js/lead-webhook.js"></script>
+  <script defer src="assets/js/intake-contracts.js"></script>
+  <script defer src="assets/js/intake-store.js"></script>
+  <script defer src="assets/js/intake-operations.js"></script>
 </body>
 </html>
