@@ -95,5 +95,5 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Consent, Attribution, and Reliable Handoffs | 3/3 | Complete | 2026-04-05 |
 | 2. Audience Messaging and Trust Layer | 3/3 | Complete | 2026-04-05 |
-| 3. Intake Operations Data Contract | 1/3 | In Progress | - |
+| 3. Intake Operations Data Contract | 2/3 | In Progress | - |
 | 4. Quality Gates and Deployment Readiness | 0/0 | Not started | - |
