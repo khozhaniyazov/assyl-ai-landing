@@ -90,5 +90,5 @@
 
 - [x] FR1 — Phase 1 / Plan 02 implemented explicit consent gating with adjacent privacy disclosures across checker, form, and sticky CTA.
 - [x] FR2 — Phase 1 / Plan 02 added truthful handoff outcomes and fallback guidance for blocked WhatsApp flows.
-- [x] FR4 — Phase 1 / Plan 01 established canonical event taxonomy, WA channel codes, and shared attribution runtime foundations.
-- [x] NFR3 — Phase 1 / Plan 01 introduced non-PII lead reference format (`L-{timestamp}-{4-char-alnum}`) for handoff correlation.
+- [x] FR4 — Phase 1 / Plans 01+03 delivered canonical event taxonomy, WA channel markers, UTM persistence, and core event instrumentation with webhook transport.
+- [x] NFR3 — Phase 1 / Plans 01+03 use non-PII lead references in URL-bound handoff messages and keep raw personal details out of URL payloads.

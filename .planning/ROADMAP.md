@@ -2,7 +2,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Consent, Attribution, and Reliable Handoffs** - Make every lead action consented, measurable, and reliably handed off to WhatsApp/call paths.
+- [x] **Phase 1: Consent, Attribution, and Reliable Handoffs** - Make every lead action consented, measurable, and reliably handed off to WhatsApp/call paths.
 - [ ] **Phase 2: Audience Messaging and Trust Layer** - Improve segment-fit messaging and evidence quality so parents can decide with confidence.
 - [ ] **Phase 3: Intake Operations Data Contract** - Standardize lead lifecycle data so operators can qualify, book, and track outcomes consistently.
 - [ ] **Phase 4: Quality Gates and Deployment Readiness** - Add pre-publish guardrails for quality, performance, accessibility, and safe releases.
@@ -23,7 +23,7 @@
 Plans:
 - [x] 01-01-PLAN.md — Define shared lead contracts/runtime and bootstrap phase scripts.
 - [x] 01-02-PLAN.md — Enforce consent and truthful WhatsApp/call handoff fallback UX.
-- [ ] 01-03-PLAN.md — Implement attribution/event tracking and webhook + queue persistence.
+- [x] 01-03-PLAN.md — Implement attribution/event tracking and webhook + queue persistence.
 **UI hint**: yes
 
 ### Phase 2: Audience Messaging and Trust Layer
@@ -85,7 +85,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Consent, Attribution, and Reliable Handoffs | 2/3 | In Progress | - |
+| 1. Consent, Attribution, and Reliable Handoffs | 3/3 | Complete | 2026-04-05 |
 | 2. Audience Messaging and Trust Layer | 0/0 | Not started | - |
 | 3. Intake Operations Data Contract | 0/0 | Not started | - |
 | 4. Quality Gates and Deployment Readiness | 0/0 | Not started | - |
