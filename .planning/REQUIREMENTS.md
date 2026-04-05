@@ -97,3 +97,5 @@
 - [x] NFR4 — Phase 3 / Plan 03 isolated intake reporting and operator workflow into dedicated `assets/js/intake-*` modules, reducing inline single-file fragility.
 - [x] NFR2 — Phase 2 / Plan 03 hardened ARIA live/status semantics and validated keyboard/screen-reader feedback flow.
 - [x] NFR3 — Phase 1 / Plans 01+03 use non-PII lead references in URL-bound handoff messages and keep raw personal details out of URL payloads.
+- [x] FR7 — Phase 4 / Plans 01-02 added deterministic HTML/link/a11y/performance checks and enforced blocking quality gate before GitHub Pages deploy.
+- [x] NFR1 — Phase 4 / Plans 01-02 introduced pre-deploy image budget and dependency pin checks without adding browser runtime dependencies.

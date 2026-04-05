@@ -4,8 +4,8 @@
 
 - [x] **Phase 1: Consent, Attribution, and Reliable Handoffs** - Make every lead action consented, measurable, and reliably handed off to WhatsApp/call paths.
 - [x] **Phase 2: Audience Messaging and Trust Layer** - Improve segment-fit messaging and evidence quality so parents can decide with confidence.
-- [ ] **Phase 3: Intake Operations Data Contract** - Standardize lead lifecycle data so operators can qualify, book, and track outcomes consistently.
-- [ ] **Phase 4: Quality Gates and Deployment Readiness** - Add pre-publish guardrails for quality, performance, accessibility, and safe releases.
+- [x] **Phase 3: Intake Operations Data Contract** - Standardize lead lifecycle data so operators can qualify, book, and track outcomes consistently.
+- [x] **Phase 4: Quality Gates and Deployment Readiness** - Add pre-publish guardrails for quality, performance, accessibility, and safe releases.
 
 ## Phase Details
 
@@ -69,7 +69,10 @@ Plans:
   2. Mobile-first landing experience remains performant after roadmap changes, without introducing heavy dependencies that degrade core vitals.
   3. Team can run and review pre-deploy checks in CI before publish, with clear pass/fail visibility.
 **Exit Gate**: CI gating is active in the GitHub Pages workflow and successfully blocks known-bad changes while allowing compliant releases.
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [x] 04-01-PLAN.md — Build deterministic local quality checks for HTML/link/a11y/performance guardrails.
+- [x] 04-02-PLAN.md — Wire blocking quality gate into GitHub Pages workflow and update testing runbook.
 
 ## Requirement Coverage Map
 
@@ -96,4 +99,4 @@ Plans:
 | 1. Consent, Attribution, and Reliable Handoffs | 3/3 | Complete | 2026-04-05 |
 | 2. Audience Messaging and Trust Layer | 3/3 | Complete | 2026-04-05 |
 | 3. Intake Operations Data Contract | 3/3 | Complete | 2026-04-05 |
-| 4. Quality Gates and Deployment Readiness | 0/0 | Not started | - |
+| 4. Quality Gates and Deployment Readiness | 2/2 | Complete | 2026-04-05 |

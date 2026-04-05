@@ -5,7 +5,7 @@
 - Workflow: new-project
 - Mode: auto
 - Project type: brownfield
-- Current phase: 3 (intake-operations-data-contract)
+- Current phase: 4 (quality-gates-and-deployment-readiness)
 
 ## Artifacts
 - Project context: `.planning/PROJECT.md`
@@ -41,9 +41,11 @@
 - Adopt versioned intake contracts plus guarded transition APIs to keep FR5 lifecycle deterministic across storage and reporting modules.
 - Register intent/form leads through a dedicated intake operations module with duplicate-click guards and shared lead_ref handling.
 - Gate operator panel behind `ops=1` and keep reporting/ops workflows in dedicated modules for maintainable intake operations.
+- Use deterministic Node-only quality scripts for HTML/link/a11y/performance pre-deploy gates so local and CI behavior match without extra dependencies.
+- Block GitHub Pages deploy through explicit `quality` job dependency (`deploy needs: quality`) to enforce FR7 before publish.
 
 ## Progress
-- Current plan in phase: 03/03 (phase complete)
+- Current plan in phase: 02/02 (phase complete)
 - Completed summaries:
   - `.planning/phases/01-consent-attribution-and-reliable-handoffs/01-01-SUMMARY.md`
   - `.planning/phases/01-consent-attribution-and-reliable-handoffs/01-02-SUMMARY.md`
@@ -54,6 +56,8 @@
   - `.planning/phases/03-intake-operations-data-contract/03-01-SUMMARY.md`
   - `.planning/phases/03-intake-operations-data-contract/03-02-SUMMARY.md`
   - `.planning/phases/03-intake-operations-data-contract/03-03-SUMMARY.md`
+  - `.planning/phases/04-quality-gates-and-deployment-readiness/04-01-SUMMARY.md`
+  - `.planning/phases/04-quality-gates-and-deployment-readiness/04-02-SUMMARY.md`
 
 ## Performance Metrics
 - 2026-04-05 — Phase 01 / Plan 01 — Duration: 4m 34s — Tasks: 3 — Files: 3
@@ -65,10 +69,12 @@
 - 2026-04-05 — Phase 03 / Plan 01 — Duration: 4m 26s — Tasks: 2 — Files: 4
 - 2026-04-05 — Phase 03 / Plan 02 — Duration: 4m 20s — Tasks: 2 — Files: 3
 - 2026-04-05 — Phase 03 / Plan 03 — Duration: 4m 31s — Tasks: 2 — Files: 4
+- 2026-04-05 — Phase 04 / Plan 01 — Duration: 3m 33s — Tasks: 2 — Files: 5
+- 2026-04-05 — Phase 04 / Plan 02 — Duration: 18s — Tasks: 2 — Files: 2
 
 ## Next Action
-- Run `/gsd-execute-phase 4`.
+- Run `/gsd-verify-work`.
 
 ## Session
-- Last updated: 2026-04-05T10:03:42Z
-- Stopped at: Completed 03-03-PLAN.md
+- Last updated: 2026-04-05T10:35:24Z
+- Stopped at: Completed 04-02-PLAN.md
