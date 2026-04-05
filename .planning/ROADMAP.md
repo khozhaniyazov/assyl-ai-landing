@@ -22,7 +22,7 @@
 **Plans**: 3 plans
 Plans:
 - [x] 01-01-PLAN.md — Define shared lead contracts/runtime and bootstrap phase scripts.
-- [ ] 01-02-PLAN.md — Enforce consent and truthful WhatsApp/call handoff fallback UX.
+- [x] 01-02-PLAN.md — Enforce consent and truthful WhatsApp/call handoff fallback UX.
 - [ ] 01-03-PLAN.md — Implement attribution/event tracking and webhook + queue persistence.
 **UI hint**: yes
 
@@ -85,7 +85,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Consent, Attribution, and Reliable Handoffs | 1/3 | In Progress | - |
+| 1. Consent, Attribution, and Reliable Handoffs | 2/3 | In Progress | - |
 | 2. Audience Messaging and Trust Layer | 0/0 | Not started | - |
 | 3. Intake Operations Data Contract | 0/0 | Not started | - |
 | 4. Quality Gates and Deployment Readiness | 0/0 | Not started | - |
