@@ -43,6 +43,9 @@
 
     statusNode = global.document.createElement('div');
     statusNode.id = surface.statusId;
+    statusNode.setAttribute('role', 'status');
+    statusNode.setAttribute('aria-live', 'polite');
+    statusNode.setAttribute('aria-atomic', 'true');
     statusNode.className = 'mt-2 text-xs';
     actionNode.insertAdjacentElement('afterend', statusNode);
     return statusNode;

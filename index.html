@@ -443,7 +443,8 @@
                   </span>
                 </label>
                 <p class="text-xs text-surface-500">WhatsApp — үшінші тарап мессенджері, хабарлама сол платформаға жіберіледі.</p>
-                <p id="consent-error-checker" class="hidden text-xs text-rose-600 font-medium">Жалғастыру үшін келісімді белгілеңіз.</p>
+                <p id="consent-error-checker" role="alert" aria-live="assertive" class="hidden text-xs text-rose-600 font-medium">Жалғастыру үшін келісімді белгілеңіз.</p>
+                <div id="status-checker" role="status" aria-live="polite" aria-atomic="true" class="mt-2 text-xs text-surface-500">WhatsApp-қа өтпес бұрын келісімді белгілеңіз.</div>
               </div>
             </div>
           </div>
@@ -899,7 +900,7 @@
                 </span>
               </label>
               <p class="text-xs text-surface-500">WhatsApp — үшінші тарап мессенджері, деректер сол сервисте өңделуі мүмкін.</p>
-              <p id="consent-error-form" class="hidden text-xs text-rose-600 font-medium">Форманы жіберу үшін келісімді белгілеңіз.</p>
+              <p id="consent-error-form" role="alert" aria-live="assertive" class="hidden text-xs text-rose-600 font-medium">Форманы жіберу үшін келісімді белгілеңіз.</p>
             </div>
             <button type="submit" id="submitBtn" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold text-lg py-5 rounded-xl transition-all shadow-xl shadow-brand-500/20 active:scale-[0.98] flex items-center justify-center gap-2">
               Тегін диагностикаға жазылу <i data-lucide="arrow-right" class="w-5 h-5"></i>
@@ -907,7 +908,7 @@
             <p class="text-surface-400 text-xs text-center">24 сағат ішінде хабарласамыз</p>
             <div id="formSuccess" class="hidden text-center text-emerald-600 font-bold py-2 bg-emerald-50 rounded-lg border border-emerald-100">✅ Сәтті жіберілді! Хабарласамыз.</div>
           </form>
-          <div id="status-form" class="mt-4 text-sm"></div>
+          <div id="status-form" role="status" aria-live="polite" aria-atomic="true" class="mt-4 text-sm"></div>
         </div>
       </div>
     </div>
@@ -945,8 +946,8 @@
         </span>
       </label>
       <p class="text-[11px] text-surface-500 mt-1">WhatsApp — үшінші тарап мессенджері.</p>
-      <p id="consent-error-sticky" class="hidden text-[11px] text-rose-600 font-medium mt-1">Жалғастыру үшін келісімді белгілеңіз.</p>
-      <div id="status-sticky" class="text-[11px] mt-1"></div>
+      <p id="consent-error-sticky" role="alert" aria-live="assertive" class="hidden text-[11px] text-rose-600 font-medium mt-1">Жалғастыру үшін келісімді белгілеңіз.</p>
+      <div id="status-sticky" role="status" aria-live="polite" aria-atomic="true" class="text-[11px] mt-1"></div>
     </div>
   </div>
       <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-surface-400 text-sm">
