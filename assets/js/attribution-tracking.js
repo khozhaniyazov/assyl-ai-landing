@@ -145,6 +145,24 @@
     }, { passive: true });
   }
 
+  function bindFormSubmitEvent() {
+    const form = global.document.getElementById('lead-form');
+    if (!form) return;
+
+    form.addEventListener('submit', () => {
+      const utm = parseUtm();
+      trackEvent(EVENTS.SUBMIT_FORM, {
+        surface: 'form',
+        wa_code: WA_CODES.FORM,
+        utm_source: utm.utm_source,
+        utm_medium: utm.utm_medium,
+        utm_campaign: utm.utm_campaign,
+        utm_content: utm.utm_content,
+        lead_ref: buildLeadRef()
+      });
+    });
+  }
+
   function init() {
     const utm = parseUtm();
     const touchPayload = {
@@ -173,6 +191,7 @@
 
     bindTrackedAnchors();
     bindScroll50();
+    bindFormSubmitEvent();
   }
 
   const api = {

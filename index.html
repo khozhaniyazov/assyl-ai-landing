@@ -84,6 +84,7 @@
   <link rel="preconnect" href="https://unpkg.com">
   <!-- Meta Pixel — Replace META_PIXEL_ID with your real Pixel ID to activate -->
   <script>
+    window.ASSYLAI_WEBHOOK_URL = window.ASSYLAI_WEBHOOK_URL || '';
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     var META_PIXEL_ID = ''; // <-- paste your Pixel ID here
     if (META_PIXEL_ID) { fbq('init', META_PIXEL_ID); fbq('track', 'PageView'); }
@@ -934,8 +935,12 @@
       btn.disabled = true;
       lucide.createIcons();
 
-      // Build WhatsApp message
-      const msg = encodeURIComponent(`Сәлеметсіз бе! Мені ${name} деп атайды. Диагностикаға жазылғым келеді. Телефоным: ${phone}`);
+      const leadRef = (window.AssylLeadRuntime && typeof window.AssylLeadRuntime.buildLeadRef === 'function')
+        ? window.AssylLeadRuntime.buildLeadRef()
+        : `L-${Date.now()}-FORM`;
+
+      // Build WhatsApp message with minimized URL PII
+      const msg = encodeURIComponent(`Сәлеметсіз бе! Диагностикаға жазылғым келеді. Өтінім коды: ${leadRef}. Байланыс дерегін чатта жіберемін.`);
       const waUrl = `https://wa.me/77773321002?text=${msg}`;
 
       if (typeof fbq === 'function') { fbq('track', 'Lead'); }
@@ -943,6 +948,23 @@
       const handoff = window.AssylConsentHandoff && typeof window.AssylConsentHandoff.beginHandoff === 'function'
         ? window.AssylConsentHandoff.beginHandoff('form', waUrl, '+77773321002')
         : { status: 'manual_next_step', opened: false };
+
+      const consentLog = JSON.parse(localStorage.getItem('assyl_consent_log') || '[]');
+      const latestConsent = consentLog.length ? consentLog[consentLog.length - 1] : null;
+      const touch = window.AssylAttribution && typeof window.AssylAttribution.resolveCurrentTouch === 'function'
+        ? window.AssylAttribution.resolveCurrentTouch()
+        : null;
+
+      if (window.AssylLeadWebhook && typeof window.AssylLeadWebhook.sendNow === 'function') {
+        window.AssylLeadWebhook.sendNow('lead', {
+          lead_ref: leadRef,
+          surface: 'form',
+          wa_code: 'WA_FORM',
+          consent: latestConsent,
+          source: touch,
+          handoff_status: handoff.status
+        });
+      }
 
       if (handoff.opened) {
         successDiv.classList.remove('hidden');
@@ -962,6 +984,19 @@
         lucide.createIcons();
       }, 4000);
     }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.AssylAttribution && typeof window.AssylAttribution.init === 'function') {
+        AssylAttribution.init();
+      }
+
+      if (window.AssylLeadWebhook && typeof window.AssylLeadWebhook.flushQueue === 'function') {
+        window.AssylLeadWebhook.flushQueue();
+        setInterval(function () {
+          window.AssylLeadWebhook.flushQueue();
+        }, 30000);
+      }
+    });
 
   </script>
   <script defer src="assets/js/lead-contracts.js"></script>
